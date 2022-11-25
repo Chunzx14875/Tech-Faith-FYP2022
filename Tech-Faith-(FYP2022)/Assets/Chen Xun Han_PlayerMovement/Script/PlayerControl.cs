@@ -40,10 +40,11 @@ public class PlayerControl : MonoBehaviour
         Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
         float inputMagnitude = Mathf.Clamp01(movementDirection.magnitude);
 
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
-        {
-            inputMagnitude /= 2;
-        }
+        //if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        //{
+        //    //inputMagnitude /= 2;
+        //    inputMagnitude *= 2;
+        //}
 
         animator.SetFloat("Input Magnitude", inputMagnitude, 0.05f, Time.deltaTime);
         //float speed = inputMagnitude * maximumSpeed; 
