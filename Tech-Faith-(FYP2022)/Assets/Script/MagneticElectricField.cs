@@ -9,50 +9,82 @@ public class MagneticElectricField : MonoBehaviour
     [SerializeField] private GameObject SmallExplore;
     [SerializeField] private GameObject MediumExplore;
     [SerializeField] private GameObject BigExplore;
-    [SerializeField] private float ExpForce, smallRad, mediumRad, bigRad;
+    //[SerializeField] private float ExpForce, smallRad, mediumRad, bigRad;
+    [SerializeField] private float increasefillSpeed = 4;
     private float EnergyAmount = 0f;
+    bool CloseToGenerator = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        //CloseToGenerator = false;
         SmallExplore.SetActive(false);
         MediumExplore.SetActive(false);
         BigExplore.SetActive(false);
         EnergyBar.fillAmount = EnergyAmount;
-        StartCoroutine(AddEnergy());
+        //StartCoroutine(AddEnergy());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if(EnergyAmount >= 0.4f && EnergyAmount < 0.7f)
+
+
+            if (EnergyAmount >= 0.4f && EnergyAmount < 0.7f)
             {
                 EnergyAmount = 0;
                 EnergyBar.fillAmount = EnergyAmount;
                 StartCoroutine(ActiveElecField(SmallExplore));
-                //KnockBackForce(smallRad);
+
                 Debug.Log("Small");
+                //CloseToGenerator = false;
 
             }
-            else if(EnergyAmount >= 0.7f && EnergyAmount < 1f)
+            else if (EnergyAmount >= 0.7f && EnergyAmount < 1f)
             {
                 EnergyAmount = 0;
                 EnergyBar.fillAmount = EnergyAmount;
                 StartCoroutine(ActiveElecField(MediumExplore));
-                //KnockBackForce(mediumRad);
+
                 Debug.Log("Medium");
+                //CloseToGenerator = false;
             }
-            else if(EnergyAmount >= 1f)
+            else if (EnergyAmount >= 1f)
             {
                 EnergyAmount = 0;
                 EnergyBar.fillAmount = EnergyAmount;
                 StartCoroutine(ActiveElecField(BigExplore));
-                //KnockBackForce(bigRad);
+
                 Debug.Log("Big");
+                //CloseToGenerator = false;
+            }
+
+        }
+
+        if (EnergyAmount < 1f)
+        {
+            if (CloseToGenerator == false)
+            {
+                EnergyAmount += 0.035f * Time.deltaTime * increasefillSpeed;
+                EnergyBar.fillAmount = EnergyAmount;
+            }
+            else
+            {
+                EnergyAmount += 0.25f * Time.deltaTime * increasefillSpeed;
+                EnergyBar.fillAmount = EnergyAmount;
             }
         }
+
+        if (EnergyAmount >= 1f)
+        {
+            EnergyAmount = 1;
+            EnergyBar.fillAmount = EnergyAmount;
+            //CloseToGenerator = false;
+        }
+
         Physics.IgnoreLayerCollision(6, 7);
     }
 
@@ -62,7 +94,7 @@ public class MagneticElectricField : MonoBehaviour
 
     //    foreach (Collider nearby in colliders)
     //    {
-            
+
     //        Rigidbody rig = nearby.GetComponent<Rigidbody>();
     //        if(rig != null)
     //        {
@@ -71,36 +103,66 @@ public class MagneticElectricField : MonoBehaviour
     //    }
 
     //}
+
+
     IEnumerator ActiveElecField(GameObject field)
     {
         field.SetActive(true);
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(0.05f);
         field.SetActive(false);
+        CloseToGenerator = false;
     }
 
-
-    IEnumerator AddEnergy()
+    private void OnTriggerStay(Collider other)
     {
-        if(EnergyAmount < 1f)
+        if (other.gameObject.CompareTag("Generator"))
         {
-            EnergyAmount += 0.025f;
-            EnergyBar.fillAmount = EnergyAmount;
+            CloseToGenerator = true;
         }
-
-        yield return new WaitForSeconds(0.25f);
-
-        StartCoroutine(AddEnergy());
     }
 
-    private void OnDrawGizmos()
+    private void OnTriggerExit(Collider other)
     {
-        //Gizmos.color = Color.red;
-        //Gizmos.DrawSphere(transform.position, smallRad);
-
-        //Gizmos.color = Color.yellow;
-        //Gizmos.DrawSphere(transform.position, mediumRad);
-
-        //Gizmos.color = Color.green;
-        //Gizmos.DrawSphere(transform.position, bigRad);
+        if (other.gameObject.CompareTag("Generator"))
+        {
+            CloseToGenerator = false;
+        }
     }
+
+    //IEnumerator AddEnergy()
+    //{
+    //    if(EnergyAmount < 1f)
+    //    {
+    //        if (CloseToGenerator)
+    //        {
+    //            EnergyAmount += 0.25f * Time.deltaTime * increasefillSpeed;
+    //            EnergyBar.fillAmount = EnergyAmount;
+    //        }
+    //        else
+    //        {
+    //            EnergyAmount += 0.035f * Time.deltaTime * increasefillSpeed;
+    //            EnergyBar.fillAmount = EnergyAmount;
+    //        }
+    //    }
+
+    //    yield return new WaitForSeconds(0.25f);
+
+    //    StartCoroutine(AddEnergy());
+    //}
+
+    //void CheckBool()
+    //{
+    //    if(CloseToGenerator == true)
+    //    {
+    //        StartCoroutine(ResetBool());
+    //    }
+    //}
+
+    //IEnumerator ResetBool()
+    //{
+
+    //    yield return new WaitForSeconds(0.01f);
+
+    //    CloseToGenerator = false;
+    //}
 }
