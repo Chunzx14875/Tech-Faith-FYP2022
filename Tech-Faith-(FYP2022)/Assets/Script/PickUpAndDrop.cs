@@ -7,6 +7,7 @@ public class PickUpAndDrop : MonoBehaviour
     [Header("Pick up")]
     [Space(1)]
     [SerializeField] private Transform HoldArea;
+    [SerializeField] private Transform RaycastFrom;
     GameObject heldObj;
     Rigidbody heldObjRB;
     [Space(5)]
@@ -31,7 +32,7 @@ public class PickUpAndDrop : MonoBehaviour
             {
                 RaycastHit hit;
 
-                if (Physics.Raycast(transform.position, transform.forward, out hit, pickUpRange))
+                if (Physics.Raycast(RaycastFrom.transform.position, transform.forward, out hit, pickUpRange))
                 {
                     if (hit.transform.gameObject.CompareTag("CanPick"))
                     {
