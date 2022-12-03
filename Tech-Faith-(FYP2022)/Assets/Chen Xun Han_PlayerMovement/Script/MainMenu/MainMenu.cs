@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class MainMenu : MonoBehaviour
 {
     [Header("CAMERA")]
     [SerializeField] Camera mainCamera;
-    [SerializeField] Transform target;
-    [SerializeField] float smoothSpeed = 0.125f;
-    public Vector3 offset;
+    [SerializeField] Transform targetCamera;
+    //[SerializeField] float smoothSpeed = 0.125f;
+    //public Vector3 offset;
+    [SerializeField] Transform targetMain;
+    [SerializeField] Transform targetStart;
+    [SerializeField] Transform targetSetting;
+    [SerializeField] Transform targetQuit;
 
     [Header("MAIN")]
     [Space(25)]
@@ -41,6 +46,9 @@ public class MainMenu : MonoBehaviour
     {
         startMenu.SetActive(true);
         mainMenu.SetActive(false);
+
+        targetCamera.DOMove(targetStart.transform.position, 1);
+        targetCamera.DORotateQuaternion(targetStart.transform.rotation, 1);
     }
 
     public void settingButton()
@@ -48,7 +56,8 @@ public class MainMenu : MonoBehaviour
         settingMenu.SetActive(true);
         mainMenu.SetActive(false);
 
-        mainCamera.transform.position = new Vector3(transform.position.x, transform.position.y, mainCamera.transform.position.z);
+        targetCamera.DOMove(targetSetting.transform.position, 1);
+        targetCamera.DORotateQuaternion(targetSetting.transform.rotation, 1);
     }
 
     public void quitButton()
@@ -63,17 +72,19 @@ public class MainMenu : MonoBehaviour
         startMenu.SetActive(false);
         settingMenu.SetActive(false);
 
+        targetCamera.DOMove(targetMain.transform.position, 1);
+        targetCamera.DORotate(targetMain.transform.position, 1);
         //animationTrans();
     }
 
-    public void animationTrans()
-    {
-        Vector3 desiredPos = target.position + offset;
-        Vector3 smoothedPos = Vector3.Lerp(mainCamera.transform.position, desiredPos, smoothSpeed);
-        mainCamera.transform.position = smoothedPos;
+    //public void animationTrans()
+    //{
+    //    Vector3 desiredPos = target.position + offset;
+    //    Vector3 smoothedPos = Vector3.Lerp(mainCamera.transform.position, desiredPos, smoothSpeed);
+    //    mainCamera.transform.position = smoothedPos;
 
-        mainCamera.transform.LookAt(target);
-    }
+    //    mainCamera.transform.LookAt(target);
+    //}
 
 
     #region SelectLevel
