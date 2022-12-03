@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyPatrolling : MonoBehaviour
+public class Enemy2 : MonoBehaviour
 {
     NavMeshAgent navMeshAgent;
     Vector3 targetPoint;
@@ -17,8 +17,14 @@ public class EnemyPatrolling : MonoBehaviour
     [Header("CHASING")]
     [SerializeField] Transform player;
     [SerializeField] float playerCheckDistance;
-
     [SerializeField] bool isfound;
+
+    [Space(25)]
+    [Header("ATTACK")]
+    [SerializeField] float damage;
+    [SerializeField] float damagePerSec;
+    [SerializeField] float timeLeft;
+    [SerializeField] bool isDamage;
 
     void Start()
     {
@@ -81,6 +87,10 @@ public class EnemyPatrolling : MonoBehaviour
                 isfound = true;
             }
         }
+        else if(other.CompareTag("Player"))
+        {
+            Debug.Log("damage");
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -92,9 +102,37 @@ public class EnemyPatrolling : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isDamage = true;
+            StartCoroutine("DamagePlayer");
+            Debug.Log("count damage sec");
+        }
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, playerCheckDistance);
+    }
+
+    IEnumerator DamagePlayer()
+    {
+        timeLeft = damagePerSec;
+
+        while (true)
+        {
+            timeLeft -= 1 * Time.deltaTime;
+
+            if(timeLeft <= 0)
+            {
+                Debug.Log("damage");
+                timeLeft = damagePerSec;
+            }
+
+            yield return null;
+        }
     }
 }
