@@ -6,7 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [Header("CAMERA")]
+    [SerializeField] Camera mainCamera;
+    [SerializeField] Transform target;
+    [SerializeField] float smoothSpeed = 0.125f;
+    public Vector3 offset;
+
     [Header("MAIN")]
+    [Space(25)]
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject startMenu;
     [SerializeField] GameObject settingMenu;
@@ -40,6 +47,8 @@ public class MainMenu : MonoBehaviour
     {
         settingMenu.SetActive(true);
         mainMenu.SetActive(false);
+
+        mainCamera.transform.position = new Vector3(transform.position.x, transform.position.y, mainCamera.transform.position.z);
     }
 
     public void quitButton()
@@ -53,6 +62,17 @@ public class MainMenu : MonoBehaviour
         mainMenu.SetActive(true);
         startMenu.SetActive(false);
         settingMenu.SetActive(false);
+
+        //animationTrans();
+    }
+
+    public void animationTrans()
+    {
+        Vector3 desiredPos = target.position + offset;
+        Vector3 smoothedPos = Vector3.Lerp(mainCamera.transform.position, desiredPos, smoothSpeed);
+        mainCamera.transform.position = smoothedPos;
+
+        mainCamera.transform.LookAt(target);
     }
 
 
