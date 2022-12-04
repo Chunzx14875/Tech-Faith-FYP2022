@@ -24,7 +24,6 @@ public class Enemy2 : MonoBehaviour
     [SerializeField] float damage;
     [SerializeField] float damagePerSec;
     [SerializeField] float timeLeft;
-    [SerializeField] bool isDamage;
 
     void Start()
     {
@@ -106,7 +105,6 @@ public class Enemy2 : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            isDamage = true;
             StartCoroutine("DamagePlayer");
             Debug.Log("count damage sec");
         }

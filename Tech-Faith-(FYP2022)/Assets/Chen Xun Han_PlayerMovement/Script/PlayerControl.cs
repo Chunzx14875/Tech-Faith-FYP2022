@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    //MOVEMENT
     [Header("MOVEMENT")]
     //[Space(15)]
     [SerializeField] private float maximumSpeed;
@@ -23,6 +22,10 @@ public class PlayerControl : MonoBehaviour
     private float? jumpButtonPressedTime;
     private bool isJumping;
     private bool isGrounded;
+
+    [Space(25)]
+    [Header("HEALTH")]
+    [SerializeField] int S;
 
     void Start()
     {
@@ -161,6 +164,15 @@ public class PlayerControl : MonoBehaviour
         else
         {
             Cursor.lockState = CursorLockMode.None;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Damage")
+        {
+            //Destroy(gameObject);
+            Debug.Log("Player dead");
         }
     }
 }
