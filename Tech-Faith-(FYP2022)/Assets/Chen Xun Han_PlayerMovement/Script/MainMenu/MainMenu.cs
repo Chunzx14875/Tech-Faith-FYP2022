@@ -10,8 +10,6 @@ public class MainMenu : MonoBehaviour
     [Header("CAMERA")]
     [SerializeField] Camera mainCamera;
     [SerializeField] Transform targetCamera;
-    //[SerializeField] float smoothSpeed = 0.125f;
-    //public Vector3 offset;
     [SerializeField] Transform targetMain;
     [SerializeField] Transform targetStart;
     [SerializeField] Transform targetSetting;
@@ -42,6 +40,7 @@ public class MainMenu : MonoBehaviour
         
     }
 
+    #region Buttons
     public void startButton()
     {
         startMenu.SetActive(true);
@@ -74,37 +73,32 @@ public class MainMenu : MonoBehaviour
 
         targetCamera.DOMove(targetMain.transform.position, 1);
         targetCamera.DORotate(targetMain.transform.position, 1);
-        //animationTrans();
     }
-
-    //public void animationTrans()
-    //{
-    //    Vector3 desiredPos = target.position + offset;
-    //    Vector3 smoothedPos = Vector3.Lerp(mainCamera.transform.position, desiredPos, smoothSpeed);
-    //    mainCamera.transform.position = smoothedPos;
-
-    //    mainCamera.transform.LookAt(target);
-    //}
-
+    #endregion
 
     #region SelectLevel
     public void tutorialLevel()
     {
-        SceneManager.LoadScene("Sample Layout");
+        //SceneManager.LoadScene("Sample Layout");
+        DOTween.KillAll();
+        SceneManager.LoadScene("SampleScene");
     }
 
     public void level1()
     {
+        DOTween.KillAll();
         SceneManager.LoadScene("Sample Layout");
     }
 
     public void level2()
     {
+        DOTween.KillAll();
         SceneManager.LoadScene("Sample Layout");
     }
 
     public void level3()
     {
+        DOTween.KillAll();
         SceneManager.LoadScene("Sample Layout");
     }
     #endregion

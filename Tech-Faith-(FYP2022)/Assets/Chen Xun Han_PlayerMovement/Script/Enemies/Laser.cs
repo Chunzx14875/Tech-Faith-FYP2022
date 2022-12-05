@@ -23,11 +23,23 @@ public class Laser : MonoBehaviour
         Destroy(gameObject, destroyAfterSec);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (!(collision.gameObject.tag == "Enemy"))
+    //    {
+    //        if(!(collision.gameObject.tag == "Damage"))
+    //        {
+    //            Destroy(gameObject);
+    //            //Debug.Log("Laser destroy");
+    //        }
+    //    }
+    //}
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (!(collision.gameObject.tag == "Enemy"))
+        if(!other.CompareTag("Enemy"))
         {
-            if(!(collision.gameObject.tag == "Damage"))
+            if (!other.CompareTag("Damage"))
             {
                 Destroy(gameObject);
                 //Debug.Log("Laser destroy");

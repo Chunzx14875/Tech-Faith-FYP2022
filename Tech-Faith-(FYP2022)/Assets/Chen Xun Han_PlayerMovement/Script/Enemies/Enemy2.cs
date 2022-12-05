@@ -72,23 +72,33 @@ public class Enemy2 : MonoBehaviour
 
     void Chasing()
     {
-        targetPoint = player.transform.position;
+        if (player != null)
+        {
+            targetPoint = player.transform.position;
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (patrollingArea)
+        if (player != null)
         {
-            float distance = Vector3.Distance(transform.position, player.transform.position);
-
-            if (distance < playerCheckDistance)
+            if (patrollingArea)
             {
-                isfound = true;
+                float distance = Vector3.Distance(transform.position, player.transform.position);
+
+                if (distance < playerCheckDistance)
+                {
+                    isfound = true;
+                }
+            }
+            else if (other.CompareTag("Player"))
+            {
+                Debug.Log("damage");
             }
         }
-        else if(other.CompareTag("Player"))
+        else
         {
-            Debug.Log("damage");
+            isfound = false;
         }
     }
 
@@ -101,14 +111,14 @@ public class Enemy2 : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            StartCoroutine("DamagePlayer");
-            Debug.Log("count damage sec");
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        StartCoroutine("DamagePlayer");
+    //        Debug.Log("count damage sec");
+    //    }
+    //}
 
     private void OnDrawGizmos()
     {
@@ -116,21 +126,21 @@ public class Enemy2 : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, playerCheckDistance);
     }
 
-    IEnumerator DamagePlayer()
-    {
-        timeLeft = damagePerSec;
+    //IEnumerator DamagePlayer()
+    //{
+    //    timeLeft = damagePerSec;
 
-        while (true)
-        {
-            timeLeft -= 1 * Time.deltaTime;
+    //    while (true)
+    //    {
+    //        timeLeft -= 1 * Time.deltaTime;
 
-            if(timeLeft <= 0)
-            {
-                Debug.Log("damage");
-                timeLeft = damagePerSec;
-            }
+    //        if(timeLeft <= 0)
+    //        {
+    //            Debug.Log("damage");
+    //            timeLeft = damagePerSec;
+    //        }
 
-            yield return null;
-        }
-    }
+    //        yield return null;
+    //    }
+    //}
 }

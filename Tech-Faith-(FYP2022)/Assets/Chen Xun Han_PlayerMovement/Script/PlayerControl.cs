@@ -23,15 +23,19 @@ public class PlayerControl : MonoBehaviour
     private bool isJumping;
     private bool isGrounded;
 
-    [Space(25)]
-    [Header("HEALTH")]
-    [SerializeField] int S;
+    //[Space(25)]
+    //[Header("LOSE")]
+    //LOSE
+    GameMenu gameMenu;
+    public GameObject gameMenuCanvas;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
         orignalStepOffset = characterController.stepOffset;
+
+        gameMenu = gameMenuCanvas.GetComponent<GameMenu>();
     }
 
 
@@ -167,11 +171,21 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "Damage")
+    //    {
+    //        Destroy(gameObject);
+    //        Debug.Log("Player dead");
+    //    }
+    //}
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Damage")
+        if (other.CompareTag("Damage"))
         {
-            //Destroy(gameObject);
+            gameMenu.losePanelOpen();
+            Destroy(gameObject);
             Debug.Log("Player dead");
         }
     }
