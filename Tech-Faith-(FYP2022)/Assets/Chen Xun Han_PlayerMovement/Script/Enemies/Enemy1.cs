@@ -15,7 +15,7 @@ public class Enemy1 : MonoBehaviour
 
     [Space(25)]
     [Header("CHASING")]
-    [SerializeField] Transform player;
+    Transform player;
     [SerializeField] float playerCheckDistance;
     [SerializeField] bool isfound;
 
@@ -31,6 +31,7 @@ public class Enemy1 : MonoBehaviour
     void Start()
     {
         navMeshAgent = this.GetComponent<NavMeshAgent>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
@@ -107,6 +108,7 @@ public class Enemy1 : MonoBehaviour
                     {
                         foreach (Transform spawnPoint in projectileSpawnPoint)
                         {
+                            AudioManager.instance.laserClipSound(AudioManager.instance.laserClip);
                             Instantiate(projectilePrefab, spawnPoint.position, transform.rotation);
                         }
 

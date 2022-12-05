@@ -15,7 +15,7 @@ public class Enemy2 : MonoBehaviour
 
     [Space(25)]
     [Header("CHASING")]
-    [SerializeField] Transform player;
+    Transform player;
     [SerializeField] float playerCheckDistance;
     [SerializeField] bool isfound;
 
@@ -28,6 +28,7 @@ public class Enemy2 : MonoBehaviour
     void Start()
     {
         navMeshAgent = this.GetComponent<NavMeshAgent>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()

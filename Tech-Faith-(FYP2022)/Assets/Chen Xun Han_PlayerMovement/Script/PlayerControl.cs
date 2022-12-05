@@ -185,6 +185,7 @@ public class PlayerControl : MonoBehaviour
         if (other.CompareTag("Damage"))
         {
             gameMenu.losePanelOpen();
+            AudioManager.instance.playerExplodeSound(AudioManager.instance.playerExplode);
             Destroy(gameObject);
             Debug.Log("Player dead");
         }

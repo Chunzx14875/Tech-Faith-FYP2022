@@ -81,24 +81,32 @@ public class MainMenu : MonoBehaviour
     {
         //SceneManager.LoadScene("Sample Layout");
         DOTween.KillAll();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         SceneManager.LoadScene("SampleScene");
     }
 
     public void level1()
     {
         DOTween.KillAll();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         SceneManager.LoadScene("Sample Layout");
     }
 
     public void level2()
     {
         DOTween.KillAll();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         SceneManager.LoadScene("Sample Layout");
     }
 
     public void level3()
     {
         DOTween.KillAll();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         SceneManager.LoadScene("Sample Layout");
     }
     #endregion

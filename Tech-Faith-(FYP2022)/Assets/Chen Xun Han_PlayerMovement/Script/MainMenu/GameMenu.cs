@@ -27,6 +27,7 @@ public class GameMenu : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape) && openOption == false)
             {
+                AudioManager.instance.pauseMenuSound(AudioManager.instance.pauseMenu);
                 option.SetActive(true);
                 openOption = true;
 
@@ -37,6 +38,7 @@ public class GameMenu : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.Escape) && openOption == true)
             {
+                AudioManager.instance.pauseMenuSound(AudioManager.instance.pauseMenu);
                 option.SetActive(false);
                 openOption = false;
 
