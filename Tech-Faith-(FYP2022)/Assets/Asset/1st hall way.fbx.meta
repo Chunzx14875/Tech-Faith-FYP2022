@@ -46,7 +46,8 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 1
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'Hips' not found\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -54,7 +55,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -110,7 +111,52 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: 1st hall way(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cube.001
+      parentName: 1st hall way(Clone)
+      position: {x: 0.0000019776437, y: 8.865366, z: 0.93849516}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 432.00003, y: 150, z: 500}
+    - name: Cube.009
+      parentName: 1st hall way(Clone)
+      position: {x: 5.2265673, y: 7.1075816, z: 7.8705716}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 5, y: 149.99995, z: 114.999985}
+    - name: Cylinder.015
+      parentName: 1st hall way(Clone)
+      position: {x: 0.0000030994415, y: 15.825877, z: 14.64929}
+      rotation: {x: 0.000000015454312, y: 0.000000015454313, z: 0.7071068, w: 0.7071067}
+      scale: {x: 7.5000005, y: 7.5000005, z: 360}
+    - name: Cube.015
+      parentName: 1st hall way(Clone)
+      position: {x: -5.25412, y: 7.10506, z: 7.8665648}
+      rotation: {x: 0.0007286037, y: 0.7071065, z: 0.7071064, w: -0.00072860374}
+      scale: {x: 5, y: 149.99995, z: 114.999985}
+    - name: Cube.021
+      parentName: 1st hall way(Clone)
+      position: {x: -0, y: -0.4326521, z: 6.3681145}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 449.99982, y: 800, z: 50}
+    - name: Cylinder.023
+      parentName: 1st hall way(Clone)
+      position: {x: -0.00008583069, y: 7.6039395, z: 15.983644}
+      rotation: {x: 0.000000015454312, y: 0.000000015454313, z: 0.7071068, w: 0.7071067}
+      scale: {x: 12.5, y: 12.5, z: 650}
+    - name: Cube.024
+      parentName: 1st hall way(Clone)
+      position: {x: 5.255588, y: 7.047488, z: 20.868977}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 108.00001, y: 650, z: 500}
+    - name: Cube.033
+      parentName: 1st hall way(Clone)
+      position: {x: -5.25412, y: 7.047488, z: 20.868587}
+      rotation: {x: 0.0007286037, y: 0.7071065, z: 0.7071064, w: -0.0007286038}
+      scale: {x: 108.00001, y: 650, z: 500}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -121,13 +167,13 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
