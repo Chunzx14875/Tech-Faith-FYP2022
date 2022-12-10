@@ -605,6 +605,7 @@ MonoBehaviour:
   - {fileID: 3197499968047231710}
   i: 0
   patrollingArea: {fileID: 3197499967889799819}
+  player: {fileID: 0}
   playerCheckDistance: 5
   isfound: 0
   damage: 2
@@ -1107,7 +1108,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4351414617880498761}
-  - component: {fileID: 8330383835528549497}
   m_Layer: 0
   m_Name: Robot2 model
   m_TagString: Untagged
@@ -1147,26 +1147,6 @@ Transform:
   m_Father: {fileID: 3158558508442499380}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!95 &8330383835528549497
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3974571973446846707}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a17f068beced0904483d77230bd36a83, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4317243364478627462
 GameObject:
   m_ObjectHideFlags: 0
