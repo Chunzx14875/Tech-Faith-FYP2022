@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
     [Header("AUDIO SOURCE")]
-    //public AudioSource bgmSound;
-    [SerializeField] private AudioSource sourceClip;
+    public AudioSource bgmSound;
+    public AudioSource sourceClip;
+    public Slider sliderBgm;
+    public Slider sliderClip;
 
     [Space(25)]
     [Header("BUTTON CLICK")]
@@ -34,7 +37,26 @@ public class AudioManager : MonoBehaviour
         }
 
         //Set SoundManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
+    }
+
+    public void Start()
+    {
+        bgmSound.volume = GameManager.instance.bgmSoundG.volume;
+        sourceClip.volume = GameManager.instance.sourceClipG.volume;
+
+        sliderBgm.value = bgmSound.volume;
+        sliderClip.value = sourceClip.volume;
+    }
+
+    public void SliderBgm()
+    {
+        bgmSound.volume = sliderBgm.value;
+    }
+
+    public void SliderSFX()
+    {
+       sourceClip.volume = sliderClip.value;
     }
 
     public void buttonClickSound()
