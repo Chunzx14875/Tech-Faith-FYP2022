@@ -4876,10 +4876,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgmSoundG: {fileID: 493820070}
   sourceClipG: {fileID: 1048982526}
-  bgmClip:
-  - {fileID: 8300000, guid: c8616e5afd2749542b87df7ceb83b475, type: 3}
-  - {fileID: 8300000, guid: 3266e293470af464793c171d63d77ae4, type: 3}
-  pickedSound: 0
 --- !u!4 &2001106739
 Transform:
   m_ObjectHideFlags: 0
@@ -5225,7 +5221,6 @@ MonoBehaviour:
   sourceClip: {fileID: 1282500968}
   sliderBgm: {fileID: 1867375074}
   sliderClip: {fileID: 785767691}
-  pickedSound: 0
   buttonClick: {fileID: 8300000, guid: 2473e0f2bafff9447b04caaccc0075a4, type: 3}
   buttonBack: {fileID: 8300000, guid: 2473e0f2bafff9447b04caaccc0075a4, type: 3}
   buttonTrans: {fileID: 8300000, guid: 199e72c997be8324587f563f16eb240b, type: 3}

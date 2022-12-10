@@ -26,9 +26,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Start()
     {
-        bgmSoundG.volume = AudioManager.instance.bgmSound.volume;
-        sourceClipG.volume = AudioManager.instance.sourceClip.volume;
+        StartCoroutine("audioUpdate");
+    }
+
+    IEnumerator audioUpdate()
+    {
+        while (true)
+        {
+            bgmSoundG.volume = AudioManager.instance.bgmSound.volume;
+            sourceClipG.volume = AudioManager.instance.sourceClip.volume;
+
+            yield return null;
+        }
     }
 }
