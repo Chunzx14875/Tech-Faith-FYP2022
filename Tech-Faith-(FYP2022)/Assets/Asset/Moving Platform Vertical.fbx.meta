@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c60b0b63943b4f64ca5d45b2215248b9
+guid: d62850b20608be5479e25d4f36bb1101
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,18 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Blue Glow Light
+    second: {fileID: 2100000, guid: 182c5bcb74a47ca4e88b79a686d026ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Metal
-    second: {fileID: 2100000, guid: af8bc1489df1b52429ada39fcf54310f, type: 2}
+    second: {fileID: 2100000, guid: 9b98f29059492b34ca248271c55f9901, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Red Glow Light
-    second: {fileID: 2100000, guid: d4a0f8d795275f44eaff3d1bbd030e06, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Switch material
-    second: {fileID: 2100000, guid: 4a7da04baca14854aab34fb767f4b252, type: 2}
+      name: Yellow light
+    second: {fileID: 2100000, guid: 7d5041f2bcdeef3498cb5956766a03b2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

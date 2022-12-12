@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c60b0b63943b4f64ca5d45b2215248b9
+guid: 3ce477cff43fef141a8cc8e23f1505d7
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -13,7 +13,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Red Glow Light
-    second: {fileID: 2100000, guid: d4a0f8d795275f44eaff3d1bbd030e06, type: 2}
+    second: {fileID: 2100000, guid: 9adf6ec84cce56c4182ed10e1a01e075, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
