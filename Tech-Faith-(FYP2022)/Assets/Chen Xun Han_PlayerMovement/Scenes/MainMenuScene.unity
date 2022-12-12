@@ -6125,7 +6125,8 @@ SkinnedMeshRenderer:
   - {fileID: 8691736948852698634}
   - {fileID: 6136828077651000461}
   - {fileID: 472793877593948805}
-  m_BlendShapeWeights: []
+  m_BlendShapeWeights:
+  - 0
   m_RootBone: {fileID: 3954115329420047882}
   m_AABB:
     m_Center: {x: -0.0038562417, y: 0.04820484, z: 1.1860663}
