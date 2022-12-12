@@ -9,7 +9,7 @@ public class MagneticElectricField : MonoBehaviour
     [SerializeField] private GameObject SmallExplore;
     [SerializeField] private GameObject MediumExplore;
     [SerializeField] private GameObject BigExplore;
-    //[SerializeField] private float ExpForce, smallRad, mediumRad, bigRad;
+    [SerializeField] private ParticleSystem smallExp, mediumExp, bigExp;
     [SerializeField] private float increasefillSpeed = 4;
     private float EnergyAmount = 0f;
     bool CloseToGenerator = false;
@@ -38,6 +38,7 @@ public class MagneticElectricField : MonoBehaviour
                 EnergyAmount = 0;
                 EnergyBar.fillAmount = EnergyAmount;
                 StartCoroutine(ActiveElecField(SmallExplore));
+                smallExp.Play();
 
                 Debug.Log("Small");
                 //CloseToGenerator = false;
@@ -48,6 +49,7 @@ public class MagneticElectricField : MonoBehaviour
                 EnergyAmount = 0;
                 EnergyBar.fillAmount = EnergyAmount;
                 StartCoroutine(ActiveElecField(MediumExplore));
+                mediumExp.Play();
 
                 Debug.Log("Medium");
                 //CloseToGenerator = false;
@@ -57,6 +59,7 @@ public class MagneticElectricField : MonoBehaviour
                 EnergyAmount = 0;
                 EnergyBar.fillAmount = EnergyAmount;
                 StartCoroutine(ActiveElecField(BigExplore));
+                bigExp.Play();
 
                 Debug.Log("Big");
                 //CloseToGenerator = false;
