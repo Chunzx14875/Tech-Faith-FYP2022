@@ -4,23 +4,26 @@ using UnityEngine;
 
 public class TrapSwitch : MonoBehaviour
 {
-    [SerializeField] GameObject Trap;
+    Rigidbody rb;
+    [SerializeField] private float KnockBackForce = -50;
 
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] GameObject Traps;
+
+    private void Start()
     {
-
-            Trap.SetActive(true);
-        
+        rb = GetComponent<Rigidbody>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "ElectricField")
         {
-            Debug.Log("Switch Destroyed");
-            Trap.SetActive(false);
+            Vector3 direction = (other.transform.position - transform.position).normalized;
+            direction.y = -KnockBackForce;
+
+            rb.AddForce(direction * KnockBackForce, ForceMode.Impulse);
+
+            Destroy(Traps);
         }
-        
     }
 }

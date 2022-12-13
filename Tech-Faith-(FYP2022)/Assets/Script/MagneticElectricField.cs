@@ -111,7 +111,7 @@ public class MagneticElectricField : MonoBehaviour
     IEnumerator ActiveElecField(GameObject field)
     {
         field.SetActive(true);
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.2f);
         field.SetActive(false);
         CloseToGenerator = false;
     }
