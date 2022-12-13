@@ -6,21 +6,25 @@ public class TrapSwitch : MonoBehaviour
 {
     [SerializeField] GameObject Trap;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    Rigidbody rb;
+    [SerializeField] private float KnockBackForce = -50;
 
-            Trap.SetActive(true);
-        
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "ElectricField")
         {
-            Debug.Log("Switch Destroyed");
-            Trap.SetActive(false);
+            Vector3 direction = (other.transform.position - transform.position).normalized;
+            direction.y = -KnockBackForce;
+
+            rb.AddForce(direction * KnockBackForce, ForceMode.Impulse);
+
+            Destroy(Trap);
         }
-        
     }
+
 }
