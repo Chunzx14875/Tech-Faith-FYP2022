@@ -29,6 +29,8 @@ public class PlayerControl : MonoBehaviour
     GameMenu gameMenu;
     public GameObject gameMenuCanvas;
 
+    Vector3 respawn;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -188,6 +190,16 @@ public class PlayerControl : MonoBehaviour
             AudioManager.instance.playerExplodeSound(AudioManager.instance.playerExplode);
             Destroy(gameObject);
             Debug.Log("Player dead");
+        }
+        if (other.CompareTag("Respawn"))
+        {
+            transform.position = respawn;
+            Debug.Log("Touch Respawn Area");
+        }
+        if (other.CompareTag("CheckPoint"))
+        {
+            respawn = other.transform.position;
+            Debug.Log("Touch Checkpoint");
         }
     }
 }
