@@ -2826,7 +2826,6 @@ MonoBehaviour:
   - {fileID: 8189615678824043144}
   i: 0
   patrollingArea: {fileID: 8189615679194426337}
-  player: {fileID: 0}
   playerCheckDistance: 7
   isfound: 0
   projectileSpawnPoint:

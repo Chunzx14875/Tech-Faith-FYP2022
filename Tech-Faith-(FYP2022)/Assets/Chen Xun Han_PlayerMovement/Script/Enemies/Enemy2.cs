@@ -79,6 +79,14 @@ public class Enemy2 : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("ElectricField"))
+        {
+            Destroy(gameObject, 1.5f);
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (player != null)
