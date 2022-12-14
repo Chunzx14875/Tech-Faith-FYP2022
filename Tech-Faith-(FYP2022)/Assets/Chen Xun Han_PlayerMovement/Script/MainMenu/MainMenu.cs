@@ -15,19 +15,19 @@ public class MainMenu : MonoBehaviour
     [SerializeField] Transform targetSetting;
     [SerializeField] Transform targetQuit;
 
-    [Header("MAIN")]
     [Space(25)]
+    [Header("MAIN")]
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject startMenu;
     [SerializeField] GameObject settingMenu;
 
-    [Header("START")]
-    [Space(25)]
-    [SerializeField] GameObject comfirmButton;
+    //[Header("START")]
+    //[Space(25)]
+    //[SerializeField] GameObject comfirmButton;
 
-    [Header("SETTING")]
-    [Space(25)]
-    [SerializeField] GameObject settingenu;
+    //[Header("SETTING")]
+    //[Space(25)]
+    //[SerializeField] GameObject settingenu;
 
 
     void Start()
@@ -79,11 +79,11 @@ public class MainMenu : MonoBehaviour
     #region SelectLevel
     public void tutorialLevel()
     {
-        //SceneManager.LoadScene("Sample Layout");
         DOTween.KillAll();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        SceneManager.LoadScene("SampleScene");
+        //SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Sample Layout");
     }
 
     public void level1()

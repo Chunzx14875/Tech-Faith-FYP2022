@@ -3949,8 +3949,6 @@ MonoBehaviour:
   mainMenu: {fileID: 653912121}
   startMenu: {fileID: 1526801143}
   settingMenu: {fileID: 1190244820}
-  comfirmButton: {fileID: 1190244820}
-  settingenu: {fileID: 0}
 --- !u!1 &1501859680
 GameObject:
   m_ObjectHideFlags: 0
