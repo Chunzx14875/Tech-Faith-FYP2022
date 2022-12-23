@@ -11,7 +11,7 @@ public class MagneticElectricField : MonoBehaviour
     [SerializeField] private GameObject BigExplore;
     [SerializeField] private ParticleSystem smallExp, mediumExp, bigExp;
     [SerializeField] private float increasefillSpeed = 4;
-    private float EnergyAmount = 0f;
+    [HideInInspector] public float EnergyAmount = 0f;
     bool CloseToGenerator = false;
 
     // Start is called before the first frame update
@@ -86,6 +86,12 @@ public class MagneticElectricField : MonoBehaviour
             EnergyAmount = 1;
             EnergyBar.fillAmount = EnergyAmount;
             //CloseToGenerator = false;
+        }
+
+        if (EnergyAmount <= 0f)
+        {
+            EnergyAmount = 0;
+            EnergyBar.fillAmount = EnergyAmount;
         }
 
         Physics.IgnoreLayerCollision(6, 7);

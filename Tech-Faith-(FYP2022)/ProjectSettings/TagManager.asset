@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - Damage
   - CheckPoint
+  - Bolt
   layers:
   - Default
   - TransparentFX

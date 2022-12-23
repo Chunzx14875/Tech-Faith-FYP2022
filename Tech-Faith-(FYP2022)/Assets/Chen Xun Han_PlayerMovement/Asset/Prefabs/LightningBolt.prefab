@@ -74,9 +74,10 @@ GameObject:
   - component: {fileID: 2571141496566266642}
   - component: {fileID: 2571141496564619308}
   - component: {fileID: -7755520142167361200}
+  - component: {fileID: 209853947}
   m_Layer: 0
-  m_Name: SimpleLightningBoltPrefab
-  m_TagString: Untagged
+  m_Name: LightningBolt
+  m_TagString: Bolt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -240,3 +241,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyAfterSec: 0.1
+--- !u!65 &209853947
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2571141496576137634}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 8}
+  m_Center: {x: 0, y: 0, z: 4}
