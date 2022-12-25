@@ -28,10 +28,20 @@ public class Enemy1 : MonoBehaviour
     Vector3 targetDir;
     Vector3 currentDir;
 
+    [Space(25)]
+    [Header("STUN")]
+    [SerializeField] float stunTimeDuration;
+    [SerializeField] float stunTimeLeft;
+    [SerializeField] bool isCanAttack;
+    private float currentSpeed;
+
     void Start()
     {
         navMeshAgent = this.GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        currentSpeed = navMeshAgent.speed;
+        isCanAttack = true;
     }
 
     void Update()
@@ -96,7 +106,7 @@ public class Enemy1 : MonoBehaviour
                     isfound = true;
                 }
 
-                if (distance <= navMeshAgent.stoppingDistance)
+                if (distance <= navMeshAgent.stoppingDistance && isCanAttack == true)
                 {
                     targetDir = (player.position - transform.position).normalized;
                     targetDir.y = 0;
@@ -119,7 +129,7 @@ public class Enemy1 : MonoBehaviour
                 }
             }
         }
-        else
+        else 
         {
             isfound = false;
         }
@@ -129,7 +139,14 @@ public class Enemy1 : MonoBehaviour
     {
         if(other.CompareTag("ElectricField"))
         {
-            Destroy(gameObject, 1.5f);
+            Destroy(gameObject, 1.5f); 
+        }
+        else if (other.CompareTag("Bolt"))
+        {
+            navMeshAgent.speed = 0;
+            isCanAttack = false;
+            StartCoroutine("stunDuration");
+            Debug.Log("Stun");
         }
     }
 
@@ -146,5 +163,28 @@ public class Enemy1 : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, playerCheckDistance);
+    }
+
+    IEnumerator stunDuration()
+    {
+        while(true)
+        {
+            stunTimeLeft = stunTimeDuration;
+
+            while (true)
+            {
+                stunTimeLeft -= 1 * Time.deltaTime;
+
+                if (stunTimeLeft <= 0)
+                {
+                    navMeshAgent.speed = currentSpeed;
+                    isCanAttack = true;
+                    Debug.Log("Stun time out");
+                    StopCoroutine("stunDuration");
+                }
+
+                yield return null;
+            }
+        }
     }
 }

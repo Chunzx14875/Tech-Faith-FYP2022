@@ -18,12 +18,14 @@ public class ShootLightingBolt : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            if (magnetic.EnergyAmount >= 0.3f)
-            {
-                magnetic.EnergyAmount -= 0.3f;
-                Instantiate(boltPrefab, spawnPoint.position, transform.rotation);
-                //Debug.Log("Bolt");
-            }
+            Instantiate(boltPrefab, spawnPoint.position, transform.rotation);
+
+            //if (magnetic.EnergyAmount >= 0.3f)
+            //{
+            //    magnetic.EnergyAmount -= 0.3f;
+            //    Instantiate(boltPrefab, spawnPoint.position, transform.rotation);
+            //    //Debug.Log("Bolt");
+            //}
         }
     }
 }

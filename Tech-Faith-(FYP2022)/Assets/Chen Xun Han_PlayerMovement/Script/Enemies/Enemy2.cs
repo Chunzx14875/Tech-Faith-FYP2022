@@ -25,10 +25,21 @@ public class Enemy2 : MonoBehaviour
     [SerializeField] float damagePerSec;
     [SerializeField] float timeLeft;
 
+    [Space(25)]
+    [Header("STUN")]
+    [SerializeField] float stunTimeDuration;
+    [SerializeField] float stunTimeLeft;
+    [SerializeField] bool isCanAttack;
+    [SerializeField] GameObject attackRing;
+    private float currentSpeed;
+
     void Start()
     {
         navMeshAgent = this.GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        currentSpeed = navMeshAgent.speed;
+        isCanAttack = true;
     }
 
     void Update()
@@ -76,6 +87,15 @@ public class Enemy2 : MonoBehaviour
         if (player != null)
         {
             targetPoint = player.transform.position;
+
+            if(isCanAttack == false)
+            {
+                attackRing.SetActive(false);
+            }
+            else
+            {
+                attackRing.SetActive(true);
+            }
         }
     }
 
@@ -84,6 +104,13 @@ public class Enemy2 : MonoBehaviour
         if (other.CompareTag("ElectricField"))
         {
             Destroy(gameObject, 1.5f);
+        }
+        else if (other.CompareTag("Bolt"))
+        {
+            navMeshAgent.speed = 0;
+            isCanAttack = false;
+            StartCoroutine("stunDuration");
+            Debug.Log("Stun");
         }
     }
 
@@ -152,4 +179,27 @@ public class Enemy2 : MonoBehaviour
     //        yield return null;
     //    }
     //}
+
+    IEnumerator stunDuration()
+    {
+        while (true)
+        {
+            stunTimeLeft = stunTimeDuration;
+
+            while (true)
+            {
+                stunTimeLeft -= 1 * Time.deltaTime;
+
+                if (stunTimeLeft <= 0)
+                {
+                    navMeshAgent.speed = currentSpeed;
+                    isCanAttack = true;
+                    Debug.Log("Stun time out");
+                    StopCoroutine("stunDuration");
+                }
+
+                yield return null;
+            }
+        }
+    }
 }
