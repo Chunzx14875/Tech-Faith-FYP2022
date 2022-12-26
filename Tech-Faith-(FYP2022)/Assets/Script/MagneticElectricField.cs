@@ -141,7 +141,7 @@ public class MagneticElectricField : MonoBehaviour
         field.SetActive(true);
         yield return new WaitForSeconds(0.05f);
         field.SetActive(false);
-        CloseToGenerator = false;
+        //CloseToGenerator = false;
     }
 
     private void OnTriggerStay(Collider other)
