@@ -13,17 +13,11 @@ public class MagneticElectricField : MonoBehaviour
     [SerializeField] private float increasefillSpeed = 4;
     [HideInInspector] public float EnergyAmount = 0f;
     bool CloseToGenerator = false;
-    PlayerControl player;
-
-    [SerializeField] GameObject boltPrefab;
-    [SerializeField] Transform spawnPoint;
-    MagneticElectricField magnetic;
 
     // Start is called before the first frame update
     void Start()
     {
         //CloseToGenerator = false;
-        player = GetComponent<PlayerControl>();
         SmallExplore.SetActive(false);
         MediumExplore.SetActive(false);
         BigExplore.SetActive(false);
@@ -71,17 +65,6 @@ public class MagneticElectricField : MonoBehaviour
                 //CloseToGenerator = false;
             }
 
-            
-        }
-
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            if (EnergyAmount >= 0.3f)
-            {
-                EnergyAmount -= 0.3f;
-                Instantiate(boltPrefab, spawnPoint.position, transform.rotation);
-                //Debug.Log("Bolt");
-            }
         }
 
         if (EnergyAmount < 1f)
@@ -102,11 +85,6 @@ public class MagneticElectricField : MonoBehaviour
         {
             EnergyAmount = 1;
             EnergyBar.fillAmount = EnergyAmount;
-            
-            if(player.NumberOfShield < 3 && CloseToGenerator)
-            {
-                player.NumberOfShield++;
-            }
             //CloseToGenerator = false;
         }
 

@@ -5109,6 +5109,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1004754886}
+  - component: {fileID: 1004754887}
   m_Layer: 0
   m_Name: Safe Room Entry Door
   m_TagString: Untagged
@@ -5133,6 +5134,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1004754887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004754885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0bf6e66792cc7b408cdb1b2d3af4645, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSwitchOn: {fileID: 0}
 --- !u!1001 &1017257198
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6654,6 +6668,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c60b0b63943b4f64ca5d45b2215248b9, type: 3}
   m_PrefabInstance: {fileID: 1542175666}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1542175668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542175667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b04471a6f0f86c5499f8f318b1951a44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TouchBox: 0
 --- !u!64 &1542175669
 MeshCollider:
   m_ObjectHideFlags: 0
