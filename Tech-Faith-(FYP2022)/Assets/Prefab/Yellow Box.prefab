@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4740913961028830415}
   - component: {fileID: 8144601799441852919}
   - component: {fileID: 1237205777248227536}
+  - component: {fileID: 8950648115519294563}
   m_Layer: 0
   m_Name: Yellow Box
   m_TagString: CanPick
@@ -144,3 +145,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cubeNum: 2
+--- !u!114 &8950648115519294563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4077353605395024787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d90ec883911aa46bb30275403840aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -22,7 +22,7 @@ public class PlayerControl : MonoBehaviour
     private float? jumpButtonPressedTime;
     private bool isJumping;
     private bool isGrounded;
-
+     
     //[Space(25)]
     //[Header("LOSE")]
     //LOSE
@@ -31,6 +31,13 @@ public class PlayerControl : MonoBehaviour
 
     Vector3 respawn;
 
+    [Header("SHIELD")]
+    public int NumberOfShield = 3;
+    [SerializeField] private GameObject FirstShield;
+    [SerializeField] private GameObject SecondShield;
+    [SerializeField] private GameObject ThirdShield;
+    bool isInvincible = false;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -38,6 +45,9 @@ public class PlayerControl : MonoBehaviour
         orignalStepOffset = characterController.stepOffset;
 
         gameMenu = gameMenuCanvas.GetComponent<GameMenu>();
+        respawn = transform.position;
+
+        NumberOfShield = 3;
     }
 
 
@@ -129,6 +139,8 @@ public class PlayerControl : MonoBehaviour
 
             characterController.Move(velocity * Time.deltaTime);
         }
+
+        ActiveShield();
     }
 
     private void OnAnimatorMove()
@@ -173,27 +185,62 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.tag == "Damage")
-    //    {
-    //        Destroy(gameObject);
-    //        Debug.Log("Player dead");
-    //    }
-    //}
+    void ActiveShield()
+    {
+        if(NumberOfShield == 3)
+        {
+            FirstShield.SetActive(true);
+            SecondShield.SetActive(true);
+            ThirdShield.SetActive(true);
+            
+        }
+        else if (NumberOfShield == 2)
+        {
+            FirstShield.SetActive(false);
+            SecondShield.SetActive(true);
+            ThirdShield.SetActive(true);
+        }
+        else if (NumberOfShield == 1)
+        {
+            FirstShield.SetActive(false);
+            SecondShield.SetActive(false);
+            ThirdShield.SetActive(true);
+        }
+        else
+        {
+            FirstShield.SetActive(false);
+            SecondShield.SetActive(false);
+            ThirdShield.SetActive(false);
+        }
+    }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)   
     {
         if (other.CompareTag("Damage"))
         {
-            gameMenu.losePanelOpen();
-            AudioManager.instance.playerExplodeSound(AudioManager.instance.playerExplode);
-            Destroy(gameObject);
-            Debug.Log("Player dead");
+            if (!isInvincible)
+            {
+                if (NumberOfShield == 0)
+                {
+                    gameMenu.losePanelOpen();
+                    AudioManager.instance.playerExplodeSound(AudioManager.instance.playerExplode);
+                    Destroy(gameObject);
+                    Debug.Log("Player dead");
+                    StartCoroutine(Invincible());
+                }
+                else
+                {
+                    NumberOfShield--;
+                    Debug.Log(NumberOfShield);
+                    StartCoroutine(Invincible());
+                }
+            }
         }
         if (other.CompareTag("Respawn"))
         {
+            characterController.enabled = false;
             transform.position = respawn;
+            characterController.enabled = true;
             Debug.Log("Touch Respawn Area");
         }
         if (other.CompareTag("CheckPoint"))
@@ -201,5 +248,14 @@ public class PlayerControl : MonoBehaviour
             respawn = other.transform.position;
             Debug.Log("Touch Checkpoint");
         }
+    }
+
+    IEnumerator Invincible()
+    {
+        isInvincible = true;
+
+        yield return new WaitForSeconds(1f);
+
+        isInvincible = false;
     }
 }
