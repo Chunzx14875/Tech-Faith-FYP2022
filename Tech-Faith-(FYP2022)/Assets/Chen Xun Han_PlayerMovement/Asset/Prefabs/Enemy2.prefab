@@ -610,10 +610,10 @@ MonoBehaviour:
   damage: 2
   damagePerSec: 2
   timeLeft: 0
-  stunTimeDuration: 0
+  stunTimeDuration: 8
   stunTimeLeft: 0
   isCanAttack: 0
-  attackRing: {fileID: 0}
+  attackRing: {fileID: 4317243364478627462}
 --- !u!1 &2876814573350681253
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,7 +999,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3974571973446846707}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 0599459359ab1fd43a37212e827f6499, type: 3}
   m_Controller: {fileID: 9100000, guid: a17f068beced0904483d77230bd36a83, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0

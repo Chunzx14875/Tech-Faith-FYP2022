@@ -76,12 +76,13 @@ public class MagneticElectricField : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            if (EnergyAmount >= 0.3f)
-            {
-                EnergyAmount -= 0.3f;
-                Instantiate(boltPrefab, spawnPoint.position, transform.rotation);
-                //Debug.Log("Bolt");
-            }
+            Instantiate(boltPrefab, spawnPoint.position, transform.rotation);
+            //if (EnergyAmount >= 0.3f)
+            //{
+            //    EnergyAmount -= 0.3f;
+            //    Instantiate(boltPrefab, spawnPoint.position, transform.rotation);
+            //    //Debug.Log("Bolt");
+            //}
         }
 
         if (EnergyAmount < 1f)
