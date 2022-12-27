@@ -23,6 +23,7 @@ public class AudioManager : MonoBehaviour
     [Header("PLAYER")]
     public AudioClip pauseMenu;
     public AudioClip playerExplode;
+    public AudioClip electricBolt;
 
     [Space(25)]
     [Header("ENEMY")]
@@ -59,6 +60,7 @@ public class AudioManager : MonoBehaviour
        sourceClip.volume = sliderClip.value;
     }
 
+    #region Buttons Sound
     public void buttonClickSound()
     {
         sourceClip.PlayOneShot(buttonClick);
@@ -73,19 +75,29 @@ public class AudioManager : MonoBehaviour
     {
         sourceClip.PlayOneShot(buttonTrans);
     }
+    #endregion
 
+    #region Player Sound
     public void playerExplodeSound(AudioClip playerExplode)
     {
         sourceClip.PlayOneShot(playerExplode);
+    }
+
+    public void electricBoltSound(AudioClip electricBolt)
+    {
+        sourceClip.PlayOneShot(electricBolt);
     }
 
     public void pauseMenuSound(AudioClip pauseMenu)
     {
         sourceClip.PlayOneShot(pauseMenu);
     }
+    #endregion
 
+    #region Enemies Sound
     public void laserClipSound(AudioClip laserClip)
     {
         sourceClip.PlayOneShot(laserClip);
-    }   
+    }
+    #endregion
 }

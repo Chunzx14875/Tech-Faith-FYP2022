@@ -77,10 +77,13 @@ public class MagneticElectricField : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             Instantiate(boltPrefab, spawnPoint.position, transform.rotation);
+            AudioManager.instance.electricBoltSound(AudioManager.instance.electricBolt);
+
             //if (EnergyAmount >= 0.3f)
             //{
             //    EnergyAmount -= 0.3f;
             //    Instantiate(boltPrefab, spawnPoint.position, transform.rotation);
+            //    AudioManager.instance.electricBoltSound(AudioManager.instance.electricBolt);
             //    //Debug.Log("Bolt");
             //}
         }
