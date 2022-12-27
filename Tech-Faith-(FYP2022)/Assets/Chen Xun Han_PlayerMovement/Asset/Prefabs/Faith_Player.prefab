@@ -7002,7 +7002,6 @@ GameObject:
   - component: {fileID: 5527664984175649027}
   - component: {fileID: 5527664984175649024}
   - component: {fileID: 5527664984175649025}
-  - component: {fileID: 1093550517}
   m_Layer: 0
   m_Name: Faith_Player
   m_TagString: Player
@@ -7140,19 +7139,6 @@ MonoBehaviour:
   EnergyAmount: 0
   boltPrefab: {fileID: 2571141496576137634, guid: eec9425584ff3a5429222e24e6280af6, type: 3}
   spawnPoint: {fileID: 3546100862266419498}
---- !u!114 &1093550517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5187555958009101188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e213f64d7ad6ac840baca59978c18677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activePlatform: {fileID: 0}
 --- !u!1 &5195068569907971021
 GameObject:
   m_ObjectHideFlags: 0
