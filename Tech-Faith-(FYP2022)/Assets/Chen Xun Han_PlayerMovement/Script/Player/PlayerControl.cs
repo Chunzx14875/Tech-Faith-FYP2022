@@ -22,15 +22,15 @@ public class PlayerControl : MonoBehaviour
     private float? jumpButtonPressedTime;
     private bool isJumping;
     private bool isGrounded;
-     
-    //[Space(25)]
-    //[Header("LOSE")]
-    //LOSE
-    GameMenu gameMenu;
+
+    [Space(25)]
+    [Header("LOSE")]
     public GameObject gameMenuCanvas;
+    GameMenu gameMenu;
 
     Vector3 respawn;
 
+    [Space(25)]
     [Header("SHIELD")]
     public int NumberOfShield = 3;
     [SerializeField] private GameObject FirstShield;
@@ -231,6 +231,7 @@ public class PlayerControl : MonoBehaviour
                 else
                 {
                     NumberOfShield--;
+                    AudioManager.instance.shieldBreakSound(AudioManager.instance.shieldBreak);
                     Debug.Log(NumberOfShield);
                     StartCoroutine(Invincible());
                 }

@@ -109,7 +109,9 @@ public class Enemy2 : MonoBehaviour
         {
             navMeshAgent.speed = 0;
             isCanAttack = false;
+            StopCoroutine("stunDuration");
             StartCoroutine("stunDuration");
+            StartCoroutine("stunDurationSound");
             Debug.Log("Stun");
         }
     }
@@ -182,24 +184,32 @@ public class Enemy2 : MonoBehaviour
 
     IEnumerator stunDuration()
     {
+        StopCoroutine("stunDurationSound");
+        stunTimeLeft = stunTimeDuration;
+
         while (true)
         {
-            stunTimeLeft = stunTimeDuration;
+            stunTimeLeft -= 1 * Time.deltaTime;
 
-            while (true)
+            if (stunTimeLeft <= 0)
             {
-                stunTimeLeft -= 1 * Time.deltaTime;
-
-                if (stunTimeLeft <= 0)
-                {
-                    navMeshAgent.speed = currentSpeed;
-                    isCanAttack = true;
-                    Debug.Log("Stun time out");
-                    StopCoroutine("stunDuration");
-                }
-
-                yield return null;
+                navMeshAgent.speed = currentSpeed;
+                isCanAttack = true;
+                Debug.Log("Stun time out");
+                StopCoroutine("stunDuration");
+                StopCoroutine("stunDurationSound");
             }
+
+            yield return null;
+        }
+    }
+
+    IEnumerator stunDurationSound()
+    {
+        while (true)
+        {
+            AudioManager.instance.paralyzedSound(AudioManager.instance.paralyzed);
+            yield return new WaitForSeconds(2f);
         }
     }
 }

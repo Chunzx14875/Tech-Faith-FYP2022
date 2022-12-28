@@ -24,10 +24,12 @@ public class AudioManager : MonoBehaviour
     public AudioClip pauseMenu;
     public AudioClip playerExplode;
     public AudioClip electricBolt;
+    public AudioClip shieldBreak;
 
     [Space(25)]
     [Header("ENEMY")]
     public AudioClip laserClip;
+    public AudioClip paralyzed;
 
     private void Awake()
     {
@@ -78,6 +80,11 @@ public class AudioManager : MonoBehaviour
     #endregion
 
     #region Player Sound
+    public void pauseMenuSound(AudioClip pauseMenu)
+    {
+        sourceClip.PlayOneShot(pauseMenu);
+    }
+
     public void playerExplodeSound(AudioClip playerExplode)
     {
         sourceClip.PlayOneShot(playerExplode);
@@ -88,16 +95,22 @@ public class AudioManager : MonoBehaviour
         sourceClip.PlayOneShot(electricBolt);
     }
 
-    public void pauseMenuSound(AudioClip pauseMenu)
+    public void shieldBreakSound(AudioClip shieldBreak)
     {
-        sourceClip.PlayOneShot(pauseMenu);
+        sourceClip.PlayOneShot(shieldBreak);
     }
+
     #endregion
 
     #region Enemies Sound
     public void laserClipSound(AudioClip laserClip)
     {
         sourceClip.PlayOneShot(laserClip);
+    }
+
+    public void paralyzedSound(AudioClip paralyzed)
+    {
+        sourceClip.PlayOneShot(paralyzed);
     }
     #endregion
 }
