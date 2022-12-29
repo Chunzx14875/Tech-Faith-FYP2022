@@ -31,6 +31,7 @@ public class Enemy2 : MonoBehaviour
     [SerializeField] float stunTimeLeft;
     [SerializeField] bool isCanAttack;
     [SerializeField] GameObject attackRing;
+    [SerializeField] GameObject StunParticle;
     private float currentSpeed;
 
     void Start()
@@ -40,6 +41,7 @@ public class Enemy2 : MonoBehaviour
 
         currentSpeed = navMeshAgent.speed;
         isCanAttack = true;
+        StunParticle.SetActive(false);
     }
 
     void Update()
@@ -190,11 +192,13 @@ public class Enemy2 : MonoBehaviour
         while (true)
         {
             stunTimeLeft -= 1 * Time.deltaTime;
+            StunParticle.SetActive(true);
 
             if (stunTimeLeft <= 0)
             {
                 navMeshAgent.speed = currentSpeed;
                 isCanAttack = true;
+                StunParticle.SetActive(false);
                 Debug.Log("Stun time out");
                 StopCoroutine("stunDuration");
                 StopCoroutine("stunDurationSound");
