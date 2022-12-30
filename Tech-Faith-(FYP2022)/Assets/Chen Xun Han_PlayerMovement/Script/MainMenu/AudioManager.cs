@@ -31,6 +31,7 @@ public class AudioManager : MonoBehaviour
     [Header("ENEMY")]
     public AudioClip laserClip;
     public AudioClip paralyzed;
+    public AudioClip enemyExplode;
 
     [Space(25)]
     [Header("OBJECTS")]

@@ -36,6 +36,13 @@ public class Enemy1 : MonoBehaviour
     [SerializeField] GameObject StunParticle;
     private float currentSpeed;
 
+    [Space(25)]
+    [Header("AUDIO SOURCE")]
+    public AudioSource shotLaserSound;
+    public AudioSource getHitSound;
+    [SerializeField] GameObject explodeSoundPrefab;
+    [SerializeField] Transform spawnExplodeSoundPos;
+
     void Start()
     {
         navMeshAgent = this.GetComponent<NavMeshAgent>();
@@ -44,6 +51,8 @@ public class Enemy1 : MonoBehaviour
         currentSpeed = navMeshAgent.speed;
         isCanAttack = true;
         StunParticle.SetActive(false);
+
+        StartCoroutine("audioUpdate");
     }
 
     void Update()
@@ -120,7 +129,8 @@ public class Enemy1 : MonoBehaviour
                     {
                         foreach (Transform spawnPoint in projectileSpawnPoint)
                         {
-                            AudioManager.instance.laserClipSound(AudioManager.instance.laserClip);
+                            shotLaserSound.PlayOneShot(AudioManager.instance.laserClip);
+                            //AudioManager.instance.laserClipSound(AudioManager.instance.laserClip);
                             Instantiate(projectilePrefab, spawnPoint.position, transform.rotation);
                         }
 
@@ -141,7 +151,10 @@ public class Enemy1 : MonoBehaviour
     {
         if(other.CompareTag("ElectricField"))
         {
-            Destroy(gameObject, 1.5f); 
+            getHitSound.PlayOneShot(AudioManager.instance.enemyExplode);
+            Instantiate(explodeSoundPrefab, spawnExplodeSoundPos.position, transform.rotation);
+            //getHitSound.PlayOneShot(AudioManager.instance.paralyzed);
+            Destroy(gameObject); 
         }
         else if (other.CompareTag("Bolt"))
         {
@@ -184,6 +197,7 @@ public class Enemy1 : MonoBehaviour
                 navMeshAgent.speed = currentSpeed;
                 isCanAttack = true;
                 StunParticle.SetActive(false);
+
                 Debug.Log("Stun time out");
                 StopCoroutine("stunDuration");
                 StopCoroutine("stunDurationSound");
@@ -197,8 +211,18 @@ public class Enemy1 : MonoBehaviour
     {
         while (true)
         {
-            AudioManager.instance.paralyzedSound(AudioManager.instance.paralyzed);
+            getHitSound.PlayOneShot(AudioManager.instance.paralyzed);
+            //AudioManager.instance.paralyzedSound(AudioManager.instance.paralyzed);
             yield return new WaitForSecondsRealtime(1f);
+        }
+    }
+
+    IEnumerator audioUpdate()
+    {
+        while (true)
+        {
+            shotLaserSound.volume = AudioManager.instance.sourceClip.volume;
+            yield return null;
         }
     }
 }
