@@ -5305,6 +5305,7 @@ MonoBehaviour:
   shieldBreak: {fileID: 8300000, guid: d3cc30315d471144ab5b3203b9642bf9, type: 3}
   laserClip: {fileID: 8300000, guid: f849e4583a0729c49a524fc2793b5575, type: 3}
   paralyzed: {fileID: 8300000, guid: 22d3c6966866af7418c113b7d0a59a94, type: 3}
+  enemyExplode: {fileID: 0}
   powerUpGenerator: {fileID: 8300000, guid: c7dc0ce6a1ba5b34da658bf63abc4bff, type: 3}
   generatorActivate: {fileID: 8300000, guid: 0cf9082777854bd4c98e115b9d61c299, type: 3}
 --- !u!1 &2098042191
