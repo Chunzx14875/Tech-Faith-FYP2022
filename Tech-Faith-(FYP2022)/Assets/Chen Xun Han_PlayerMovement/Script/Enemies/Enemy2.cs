@@ -213,7 +213,7 @@ public class Enemy2 : MonoBehaviour
         while (true)
         {
             AudioManager.instance.paralyzedSound(AudioManager.instance.paralyzed);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSecondsRealtime(1f);
         }
     }
 }

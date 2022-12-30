@@ -49,6 +49,7 @@ public class MagneticElectricField : MonoBehaviour
                 Debug.Log("Small");
                 //CloseToGenerator = false;
 
+                AudioManager.instance.electricFieldSound(AudioManager.instance.electricField);
             }
             else if (EnergyAmount >= 0.7f && EnergyAmount < 1f)
             {
@@ -59,6 +60,7 @@ public class MagneticElectricField : MonoBehaviour
 
                 Debug.Log("Medium");
                 //CloseToGenerator = false;
+                AudioManager.instance.electricFieldSound(AudioManager.instance.electricField);
             }
             else if (EnergyAmount >= 1f)
             {
@@ -69,6 +71,7 @@ public class MagneticElectricField : MonoBehaviour
 
                 Debug.Log("Big");
                 //CloseToGenerator = false;
+                AudioManager.instance.electricFieldSound(AudioManager.instance.electricField);
             }
 
             

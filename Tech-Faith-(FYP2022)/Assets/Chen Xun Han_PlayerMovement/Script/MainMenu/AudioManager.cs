@@ -23,6 +23,7 @@ public class AudioManager : MonoBehaviour
     [Header("PLAYER")]
     public AudioClip pauseMenu;
     public AudioClip playerExplode;
+    public AudioClip electricField;
     public AudioClip electricBolt;
     public AudioClip shieldBreak;
 
@@ -30,6 +31,11 @@ public class AudioManager : MonoBehaviour
     [Header("ENEMY")]
     public AudioClip laserClip;
     public AudioClip paralyzed;
+
+    [Space(25)]
+    [Header("OBJECTS")]
+    public AudioClip powerUpGenerator;
+    public AudioClip generatorActivate;
 
     private void Awake()
     {
@@ -88,6 +94,11 @@ public class AudioManager : MonoBehaviour
     public void playerExplodeSound(AudioClip playerExplode)
     {
         sourceClip.PlayOneShot(playerExplode);
+    }
+
+    public void electricFieldSound(AudioClip electricField)
+    {
+        sourceClip.PlayOneShot(electricField);
     }
 
     public void electricBoltSound(AudioClip electricBolt)

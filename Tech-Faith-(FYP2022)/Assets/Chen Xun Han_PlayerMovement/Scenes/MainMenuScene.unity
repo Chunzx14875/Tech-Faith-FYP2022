@@ -5296,11 +5296,17 @@ MonoBehaviour:
   sliderBgm: {fileID: 1867375074}
   sliderClip: {fileID: 785767691}
   buttonClick: {fileID: 8300000, guid: 2473e0f2bafff9447b04caaccc0075a4, type: 3}
-  buttonBack: {fileID: 8300000, guid: 2473e0f2bafff9447b04caaccc0075a4, type: 3}
+  buttonBack: {fileID: 8300000, guid: a313018347380264788f7edf26537bf9, type: 3}
   buttonTrans: {fileID: 8300000, guid: 199e72c997be8324587f563f16eb240b, type: 3}
   pauseMenu: {fileID: 8300000, guid: a313018347380264788f7edf26537bf9, type: 3}
   playerExplode: {fileID: 8300000, guid: 66d46e00a66979546bad262edf3d6f9f, type: 3}
+  electricField: {fileID: 8300000, guid: b9da0531730ffb341965a8174ce3bb1a, type: 3}
+  electricBolt: {fileID: 8300000, guid: 8b035df4c1a800d4293fdaefed862910, type: 3}
+  shieldBreak: {fileID: 8300000, guid: d3cc30315d471144ab5b3203b9642bf9, type: 3}
   laserClip: {fileID: 8300000, guid: f849e4583a0729c49a524fc2793b5575, type: 3}
+  paralyzed: {fileID: 8300000, guid: 22d3c6966866af7418c113b7d0a59a94, type: 3}
+  powerUpGenerator: {fileID: 8300000, guid: c7dc0ce6a1ba5b34da658bf63abc4bff, type: 3}
+  generatorActivate: {fileID: 8300000, guid: 0cf9082777854bd4c98e115b9d61c299, type: 3}
 --- !u!1 &2098042191
 GameObject:
   m_ObjectHideFlags: 0
