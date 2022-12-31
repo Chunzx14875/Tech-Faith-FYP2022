@@ -22,11 +22,6 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Red Light
-    second: {fileID: 2100000, guid: d4a0f8d795275f44eaff3d1bbd030e06, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: Safe room material
     second: {fileID: 2100000, guid: 6f6e8ed6076df9a4a9fd2d8dced111c9, type: 2}
   - first:

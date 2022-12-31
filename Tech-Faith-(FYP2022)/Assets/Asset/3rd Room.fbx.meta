@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Blue Glow Light
-    second: {fileID: -6042376590091880416, guid: b8cbb4a2ac5ef3240afdf812192855ff, type: 3}
+    second: {fileID: 2100000, guid: 03bb3bd5f9ee80a4c948418e41da8aa9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
