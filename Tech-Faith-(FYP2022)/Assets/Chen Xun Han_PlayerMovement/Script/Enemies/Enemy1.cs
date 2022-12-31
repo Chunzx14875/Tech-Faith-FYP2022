@@ -151,9 +151,7 @@ public class Enemy1 : MonoBehaviour
     {
         if(other.CompareTag("ElectricField"))
         {
-            getHitSound.PlayOneShot(AudioManager.instance.enemyExplode);
             Instantiate(explodeSoundPrefab, spawnExplodeSoundPos.position, transform.rotation);
-            //getHitSound.PlayOneShot(AudioManager.instance.paralyzed);
             Destroy(gameObject); 
         }
         else if (other.CompareTag("Bolt"))

@@ -6248,7 +6248,7 @@ GameObject:
   - component: {fileID: 3546100861893428409}
   - component: {fileID: 3546100861893428406}
   - component: {fileID: 3546100861893428407}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Big Explore
   m_TagString: ElectricField
   m_Icon: {fileID: 0}
@@ -6407,7 +6407,7 @@ GameObject:
   - component: {fileID: 3546100863201118661}
   - component: {fileID: 3546100863201118658}
   - component: {fileID: 3546100863201118659}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Small Explore
   m_TagString: ElectricField
   m_Icon: {fileID: 0}
@@ -6504,7 +6504,7 @@ GameObject:
   - component: {fileID: 3546100863258713709}
   - component: {fileID: 3546100863258713706}
   - component: {fileID: 3546100863258713707}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Medium Explore
   m_TagString: ElectricField
   m_Icon: {fileID: 0}

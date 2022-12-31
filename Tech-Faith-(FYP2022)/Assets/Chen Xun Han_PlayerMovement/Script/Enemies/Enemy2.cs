@@ -34,6 +34,12 @@ public class Enemy2 : MonoBehaviour
     [SerializeField] GameObject StunParticle;
     private float currentSpeed;
 
+    [Space(25)]
+    [Header("AUDIO SOURCE")]
+    public AudioSource getHitSound;
+    [SerializeField] GameObject explodeSoundPrefab;
+    [SerializeField] Transform spawnExplodeSoundPos;
+
     void Start()
     {
         navMeshAgent = this.GetComponent<NavMeshAgent>();
@@ -42,6 +48,8 @@ public class Enemy2 : MonoBehaviour
         currentSpeed = navMeshAgent.speed;
         isCanAttack = true;
         StunParticle.SetActive(false);
+
+        StartCoroutine("audioUpdate");
     }
 
     void Update()
@@ -105,7 +113,8 @@ public class Enemy2 : MonoBehaviour
     {
         if (other.CompareTag("ElectricField"))
         {
-            Destroy(gameObject, 1.5f);
+            Instantiate(explodeSoundPrefab, spawnExplodeSoundPos.position, transform.rotation);
+            Destroy(gameObject);
         }
         else if (other.CompareTag("Bolt"))
         {
@@ -199,6 +208,7 @@ public class Enemy2 : MonoBehaviour
                 navMeshAgent.speed = currentSpeed;
                 isCanAttack = true;
                 StunParticle.SetActive(false);
+
                 Debug.Log("Stun time out");
                 StopCoroutine("stunDuration");
                 StopCoroutine("stunDurationSound");
@@ -212,8 +222,18 @@ public class Enemy2 : MonoBehaviour
     {
         while (true)
         {
-            AudioManager.instance.paralyzedSound(AudioManager.instance.paralyzed);
+            getHitSound.PlayOneShot(AudioManager.instance.paralyzed);
+            //AudioManager.instance.paralyzedSound(AudioManager.instance.paralyzed);
             yield return new WaitForSecondsRealtime(1f);
+        }
+    }
+
+    IEnumerator audioUpdate()
+    {
+        while (true)
+        {
+            getHitSound.volume = AudioManager.instance.sourceClip.volume;
+            yield return null;
         }
     }
 }
