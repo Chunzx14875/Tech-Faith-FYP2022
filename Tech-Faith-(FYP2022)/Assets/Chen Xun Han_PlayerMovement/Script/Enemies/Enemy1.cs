@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using DG.Tweening;
 
 public class Enemy1 : MonoBehaviour
 {
@@ -151,6 +152,9 @@ public class Enemy1 : MonoBehaviour
     {
         if(other.CompareTag("ElectricField"))
         {
+            StopCoroutine("stunDuration");
+            StopCoroutine("stunDurationEffect");
+            transform.DOKill();
             Instantiate(explodeSoundPrefab, spawnExplodeSoundPos.position, transform.rotation);
             Destroy(gameObject); 
         }
@@ -159,8 +163,9 @@ public class Enemy1 : MonoBehaviour
             navMeshAgent.speed = 0;
             isCanAttack = false;
             StopCoroutine("stunDuration");
+            StopCoroutine("stunDurationEffect");
             StartCoroutine("stunDuration");
-            StartCoroutine("stunDurationSound");
+            StartCoroutine("stunDurationEffect");
             Debug.Log("Stun");
         }
     }
@@ -182,7 +187,6 @@ public class Enemy1 : MonoBehaviour
 
     IEnumerator stunDuration()
     {
-        StopCoroutine("stunDurationSound");
         stunTimeLeft = stunTimeDuration;
 
         while (true)
@@ -198,20 +202,21 @@ public class Enemy1 : MonoBehaviour
 
                 Debug.Log("Stun time out");
                 StopCoroutine("stunDuration");
-                StopCoroutine("stunDurationSound");
+                StopCoroutine("stunDurationEffect");
             }
 
             yield return null;
         }
     }
 
-    IEnumerator stunDurationSound()
+    IEnumerator stunDurationEffect()
     {
         while (true)
         {
             getHitSound.PlayOneShot(AudioManager.instance.paralyzed);
-            //AudioManager.instance.paralyzedSound(AudioManager.instance.paralyzed);
-            yield return new WaitForSecondsRealtime(1f);
+            transform.DOPunchPosition(new Vector3(0.3f, 0.3f, 0.3f), 1);
+            //yield return new WaitForSecondsRealtime(1f);
+            yield return new WaitForSeconds(1f);
         }
     }
 

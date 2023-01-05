@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using DG.Tweening;
 
 public class Enemy2 : MonoBehaviour
 {
@@ -42,6 +43,8 @@ public class Enemy2 : MonoBehaviour
 
     void Start()
     {
+        Sequence mySequence = DOTween.Sequence();
+
         navMeshAgent = this.GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
@@ -113,6 +116,9 @@ public class Enemy2 : MonoBehaviour
     {
         if (other.CompareTag("ElectricField"))
         {
+            StopCoroutine("stunDuration");
+            StopCoroutine("stunDurationEffect");
+            transform.DOKill();
             Instantiate(explodeSoundPrefab, spawnExplodeSoundPos.position, transform.rotation);
             Destroy(gameObject);
         }
@@ -120,9 +126,11 @@ public class Enemy2 : MonoBehaviour
         {
             navMeshAgent.speed = 0;
             isCanAttack = false;
+            transform.DOKill();
             StopCoroutine("stunDuration");
+            StopCoroutine("stunDurationEffect");
             StartCoroutine("stunDuration");
-            StartCoroutine("stunDurationSound");
+            StartCoroutine("stunDurationEffect");
             Debug.Log("Stun");
         }
     }
@@ -160,42 +168,14 @@ public class Enemy2 : MonoBehaviour
         }
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        StartCoroutine("DamagePlayer");
-    //        Debug.Log("count damage sec");
-    //    }
-    //}
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, playerCheckDistance);
     }
 
-    //IEnumerator DamagePlayer()
-    //{
-    //    timeLeft = damagePerSec;
-
-    //    while (true)
-    //    {
-    //        timeLeft -= 1 * Time.deltaTime;
-
-    //        if(timeLeft <= 0)
-    //        {
-    //            Debug.Log("damage");
-    //            timeLeft = damagePerSec;
-    //        }
-
-    //        yield return null;
-    //    }
-    //}
-
     IEnumerator stunDuration()
     {
-        StopCoroutine("stunDurationSound");
         stunTimeLeft = stunTimeDuration;
 
         while (true)
@@ -211,20 +191,21 @@ public class Enemy2 : MonoBehaviour
 
                 Debug.Log("Stun time out");
                 StopCoroutine("stunDuration");
-                StopCoroutine("stunDurationSound");
+                StopCoroutine("stunDurationEffect");
             }
 
             yield return null;
         }
     }
 
-    IEnumerator stunDurationSound()
+    IEnumerator stunDurationEffect()
     {
         while (true)
         {
             getHitSound.PlayOneShot(AudioManager.instance.paralyzed);
-            //AudioManager.instance.paralyzedSound(AudioManager.instance.paralyzed);
-            yield return new WaitForSecondsRealtime(1f);
+            transform.DOPunchPosition(new Vector3(0.3f, 0.3f, 0.3f), 1);
+            //yield return new WaitForSecondsRealtime(1f);
+            yield return new WaitForSeconds(1f);
         }
     }
 
