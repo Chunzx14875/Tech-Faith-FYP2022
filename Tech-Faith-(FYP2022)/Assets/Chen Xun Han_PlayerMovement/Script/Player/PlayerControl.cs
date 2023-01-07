@@ -20,7 +20,7 @@ public class PlayerControl : MonoBehaviour
     private float orignalStepOffset;
     private float? lastGroundTime;
     private float? jumpButtonPressedTime;
-    private bool isJumping;
+    [HideInInspector] public bool isJumping;
     private bool isGrounded;
 
     [Space(25)]

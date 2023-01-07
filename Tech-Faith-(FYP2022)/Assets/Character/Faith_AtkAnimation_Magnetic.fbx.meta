@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 239d6286353a8d149b8ce71565d2fbe6
+guid: 16e24bb2383ed974ba1cc2d4cfe140d8
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -18,19 +18,10 @@ ModelImporter:
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
-      copied configuration does not match position in animation file:\n\t'CC_Base_L_Thigh'
-      : position error = 2.142606 mm\n\t'CC_Base_R_Thigh' : position error = 2.142583
-      mm\n\t'CC_Base_L_Hand' : position error = 3.401668 mm\n"
+      copied configuration does not match position in animation file:\n\t'CC_Base_L_Hand'
+      : position error = 3.401660 mm\n"
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Armature|ArmatureAction' has import animation
-      warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'CC_Base_L_Thigh' has translation
-      animation that will be discarded.\n\t'CC_Base_R_Thigh' has translation animation
-      that will be discarded.\n\nClip 'Armature|Key|0_T-Pose|0_T-Pose' has import
-      animation warnings that might lower retargeting quality:\nNote: Activate translation
-      DOF on avatar to improve retargeting quality.\n\t'CC_Base_L_Thigh' has translation
-      animation that will be discarded.\n\t'CC_Base_R_Thigh' has translation animation
-      that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -44,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Faith_AtkStunAnimation
+      name: Faith_AtkAnimation_Magnetic
       takeName: Armature|ArmatureAction
       internalID: 4781951162920444690
       firstFrame: 0
-      lastFrame: 40
+      lastFrame: 57
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
