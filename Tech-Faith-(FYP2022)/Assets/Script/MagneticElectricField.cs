@@ -17,18 +17,18 @@ public class MagneticElectricField : MonoBehaviour
     [SerializeField] private GameObject MediumExplore;
     [SerializeField] private GameObject BigExplore;
     [SerializeField] private ParticleSystem smallExp, mediumExp, bigExp;
-    //[SerializeField] private float magneticTimeLeft = 0f;
-    //[SerializeField] private float magneticTimeDuration;
-    //[SerializeField] private float timeSpawnMagnetic = 0f;
-    //[SerializeField] private float timeDelaySpawnMagnetic = 0.3f;
-    //[SerializeField] private bool isMagnetic;
+    [SerializeField] private float magneticTimeLeft = 0f;
+    [SerializeField] private float magneticTimeCooldown;
+    [SerializeField] private float timeSpawnMagnetic = 0f;
+    [SerializeField] private float timeDelaySpawnMagnetic = 0.3f;
+    [SerializeField] private bool isMagnetic;
 
     [Space(25)]
     [Header("BOLT")]
     [SerializeField] GameObject boltPrefab;
     [SerializeField] Transform spawnPoint;
     [SerializeField] private float shotTimeLeft = 0f;
-    [SerializeField] private float shotTimeDuration;
+    [SerializeField] private float shotTimeCooldown;
     [SerializeField] private float timeSpawnBolt = 0f;
     [SerializeField] private float timeDelaySpawnBolt = 0.3f;
     [SerializeField] private bool isShotBolt;
@@ -46,24 +46,22 @@ public class MagneticElectricField : MonoBehaviour
         BigExplore.SetActive(false);
         EnergyBar.fillAmount = EnergyAmount;
         //StartCoroutine(AddEnergy());
-        shotTimeLeft = shotTimeDuration;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (magneticTimeLeft >= 0)
         {
-            //if (magneticTimeLeft >= 0)
-            //{
-            //    magneticTimeLeft -= 1 * Time.deltaTime;
-            //}
-            //else if (magneticTimeLeft <= 0)
-            //{
-            //    magneticTimeLeft = 0;
-            //}
+            magneticTimeLeft -= 1 * Time.deltaTime;
+        }
+        else if (magneticTimeLeft <= 0)
+        {
+            magneticTimeLeft = 0;
+        }
 
+        if ((Input.GetKeyDown(KeyCode.Mouse0)) && (!Input.GetKeyDown(KeyCode.Mouse1)))
+        {
             //if (isMagnetic == true)
             //{
             //    if (timeSpawnMagnetic < timeDelaySpawnMagnetic)
@@ -78,42 +76,45 @@ public class MagneticElectricField : MonoBehaviour
             //        isMagnetic = false;
             //    }
             //}
-
-            if (EnergyAmount >= 0.4f && EnergyAmount < 0.7f)
+            if (magneticTimeLeft <= 0)
             {
-                EnergyAmount = 0;
-                EnergyBar.fillAmount = EnergyAmount;
-                StartCoroutine(ActiveElecField(SmallExplore));
-                smallExp.Play();
+                magneticTimeLeft = magneticTimeCooldown;
 
-                Debug.Log("Small");
-                //CloseToGenerator = false;
+                if (EnergyAmount >= 0.4f && EnergyAmount < 0.7f)
+                {
+                    EnergyAmount = 0;
+                    EnergyBar.fillAmount = EnergyAmount;
+                    StartCoroutine(ActiveElecField(SmallExplore));
+                    smallExp.Play();
+                    animator.SetTrigger("IsMagnetic");
+                    Debug.Log("Small");
+                    //CloseToGenerator = false;
 
-                AudioManager.instance.electricFieldSound(AudioManager.instance.electricField);
+                    AudioManager.instance.electricFieldSound(AudioManager.instance.electricField);
+                }
+                else if (EnergyAmount >= 0.7f && EnergyAmount < 1f)
+                {
+                    EnergyAmount = 0;
+                    EnergyBar.fillAmount = EnergyAmount;
+                    StartCoroutine(ActiveElecField(MediumExplore));
+                    mediumExp.Play();
+                    animator.SetTrigger("IsMagnetic");
+                    Debug.Log("Medium");
+                    //CloseToGenerator = false;
+                    AudioManager.instance.electricFieldSound(AudioManager.instance.electricField);
+                }
+                else if (EnergyAmount >= 1f)
+                {
+                    EnergyAmount = 0;
+                    EnergyBar.fillAmount = EnergyAmount;
+                    StartCoroutine(ActiveElecField(BigExplore));
+                    bigExp.Play();
+                    animator.SetTrigger("IsMagnetic");
+                    Debug.Log("Big");
+                    //CloseToGenerator = false;
+                    AudioManager.instance.electricFieldSound(AudioManager.instance.electricField);
+                }
             }
-            else if (EnergyAmount >= 0.7f && EnergyAmount < 1f)
-            {
-                EnergyAmount = 0;
-                EnergyBar.fillAmount = EnergyAmount;
-                StartCoroutine(ActiveElecField(MediumExplore));
-                mediumExp.Play();
-
-                Debug.Log("Medium");
-                //CloseToGenerator = false;
-                AudioManager.instance.electricFieldSound(AudioManager.instance.electricField);
-            }
-            else if (EnergyAmount >= 1f)
-            {
-                EnergyAmount = 0;
-                EnergyBar.fillAmount = EnergyAmount;
-                StartCoroutine(ActiveElecField(BigExplore));
-                bigExp.Play();
-
-                Debug.Log("Big");
-                //CloseToGenerator = false;
-                AudioManager.instance.electricFieldSound(AudioManager.instance.electricField);
-            }
-
             
         }
 
@@ -131,7 +132,7 @@ public class MagneticElectricField : MonoBehaviour
         {
             if (timeSpawnBolt < timeDelaySpawnBolt)
             {
-                timeSpawnBolt = timeSpawnBolt + 1f * Time.deltaTime;
+                timeSpawnBolt += + 1f * Time.deltaTime;
             }
             else if (timeSpawnBolt >= timeDelaySpawnBolt)
             {
@@ -142,13 +143,13 @@ public class MagneticElectricField : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if ((Input.GetKeyDown(KeyCode.Mouse1)) && (!Input.GetKeyDown(KeyCode.Mouse0)))
         {
             if (shotTimeLeft <= 0)
             {
                 animator.SetTrigger("IsShot");
                 isShotBolt = true;
-                shotTimeLeft = shotTimeDuration;
+                shotTimeLeft = shotTimeCooldown;
 
                 //if (EnergyAmount >= 0.3f)
                 //{
@@ -158,6 +159,32 @@ public class MagneticElectricField : MonoBehaviour
                 //    //Debug.Log("Bolt");
                 //}
             }
+
+            //if (Time.time - player.lastGroundTime <= player.jumpButtonGracePeriod)
+            //{
+            //    if (shotTimeLeft <= 0)
+            //    {
+            //        Debug.Log("Shot disable");
+            //    }
+            //}
+            //else
+            //{
+            //    Debug.Log("Shot disable");
+            //    if (shotTimeLeft <= 0)
+            //    {
+            //        animator.SetTrigger("IsShot");
+            //        isShotBolt = true;
+            //        shotTimeLeft = shotTimeDuration;
+
+            //        //if (EnergyAmount >= 0.3f)
+            //        //{
+            //        //    EnergyAmount -= 0.3f;
+            //        //    Instantiate(boltPrefab, spawnPoint.position, transform.rotation);
+            //        //    AudioManager.instance.electricBoltSound(AudioManager.instance.electricBolt);
+            //        //    //Debug.Log("Bolt");
+            //        //}
+            //    }
+            //}
         }
         #endregion;
 

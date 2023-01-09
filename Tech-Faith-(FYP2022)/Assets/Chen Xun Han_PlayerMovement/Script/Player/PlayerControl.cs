@@ -10,7 +10,7 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float jumpSpeed;
     [SerializeField] private float jumpHorizontalSpeed;
-    [SerializeField] private float jumpButtonGracePeriod;
+    [HideInInspector] public float jumpButtonGracePeriod;
 
     [SerializeField] private Transform cameraTransform;
 
@@ -18,10 +18,10 @@ public class PlayerControl : MonoBehaviour
     private CharacterController characterController;
     private float ySpeed;
     private float orignalStepOffset;
-    private float? lastGroundTime;
+    [HideInInspector] public float? lastGroundTime;
     private float? jumpButtonPressedTime;
-    [HideInInspector] public bool isJumping;
-    private bool isGrounded;
+    private bool isJumping;
+    [HideInInspector] public bool isGrounded;
 
     [Space(25)]
     [Header("LOSE")]
