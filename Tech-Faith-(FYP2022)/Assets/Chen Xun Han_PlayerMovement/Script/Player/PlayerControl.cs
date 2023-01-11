@@ -18,9 +18,9 @@ public class PlayerControl : MonoBehaviour
     private CharacterController characterController;
     private float ySpeed;
     private float orignalStepOffset;
-    [HideInInspector] public float? lastGroundTime;
+    private float? lastGroundTime;
     private float? jumpButtonPressedTime;
-    private bool isJumping;
+    [HideInInspector] public bool isJumping;
     [HideInInspector] public bool isGrounded;
 
     [Space(25)]

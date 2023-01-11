@@ -18129,16 +18129,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnergyBar: {fileID: 0}
+  increasefillSpeed: 1.5
+  EnergyAmount: 0
   SmallExplore: {fileID: 3561013791863381356}
   MediumExplore: {fileID: 3561013791427189244}
   BigExplore: {fileID: 3561013791928290420}
   smallExp: {fileID: 3561013792656442982}
   mediumExp: {fileID: 3561013792927525440}
   bigExp: {fileID: 3561013791496604781}
-  increasefillSpeed: 1.5
-  EnergyAmount: 0
+  magneticTimeLeft: 0
+  magneticTimeCooldown: 0
   boltPrefab: {fileID: 2571141496576137634, guid: eec9425584ff3a5429222e24e6280af6, type: 3}
   spawnPoint: {fileID: 3561013791717229609}
+  shotTimeLeft: 0
+  shotTimeCooldown: 0
+  timeSpawnBolt: 0
+  timeDelaySpawnBolt: 0.3
+  isShotBolt: 0
 --- !u!114 &3561013791476562558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18173,6 +18180,7 @@ MonoBehaviour:
   jumpHorizontalSpeed: 5
   jumpButtonGracePeriod: 0.2
   cameraTransform: {fileID: 0}
+  isGrounded: 0
   gameMenuCanvas: {fileID: 0}
   NumberOfShield: 3
   FirstShield: {fileID: 3561013791208492870}

@@ -17,10 +17,22 @@ public class PickUpAndDrop : MonoBehaviour
     [SerializeField] private float pickUpRange = 2f;
     [SerializeField] private float pickUpForce = 100f;
 
+    PlayerControl player;
+    private Animator animator;
+    private string currentState;
+    private bool isPick;
+
+    [SerializeField] private float pickUpDelay = 1f;
+
+    //Animation States
+    const string PICK_OBJECT = "Pick Object";
+    const string JUMP_DOWN_STANDING = "Jump Down Standing";
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
+        player = GetComponent<PlayerControl>();
     }
 
     // Update is called once per frame
@@ -36,12 +48,19 @@ public class PickUpAndDrop : MonoBehaviour
                 {
                     if (hit.transform.gameObject.CompareTag("CanPick"))
                     {
-                        PickUpObject(hit.transform.gameObject);
+                        if (!isPick)
+                        {
+                            isPick = true;
+                            ChangeAnimationState(PICK_OBJECT);
+                            PickUpObject(hit.transform.gameObject);
+                            Invoke("PickComplete", pickUpDelay);
+                        }
                     }
                 }
             }
-            else
+            else if (heldObj != null && isPick == false)
             {
+                animator.SetLayerWeight(2, 0f);
                 DropObject();
             }
         }
@@ -51,7 +70,18 @@ public class PickUpAndDrop : MonoBehaviour
             MoveObject();
         }
 
+        if(heldObj != null && player.isGrounded == false)
+        {
+            ChangeAnimationState2(JUMP_DOWN_STANDING);
+        }
+
         Debug.DrawRay(transform.position, transform.forward * pickUpRange, Color.green);
+    }
+
+    void PickComplete()
+    {
+        isPick = false;
+        animator.SetLayerWeight(2, 1f);
     }
 
     void MoveObject()
@@ -88,5 +118,29 @@ public class PickUpAndDrop : MonoBehaviour
 
         heldObjRB.transform.parent = null;
         heldObj = null;
+    }
+
+    void ChangeAnimationState(string newState)
+    {
+        //Stop the same animation from interrupting itself
+        //if (currentState == newState) return;
+
+        //Play the animation
+        animator.Play(newState);
+
+        //Reassign the current state
+        currentState = newState;
+    }
+
+    void ChangeAnimationState2(string newState2)
+    {
+        //Stop the same animation from interrupting itself
+        //if (currentState == newState2) return;
+
+        //Play the animation
+        animator.Play(newState2, 1, 0f);
+
+        //Reassign the current state
+        currentState = newState2;
     }
 }

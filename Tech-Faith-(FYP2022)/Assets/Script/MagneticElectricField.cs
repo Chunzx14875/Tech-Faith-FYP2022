@@ -19,9 +19,6 @@ public class MagneticElectricField : MonoBehaviour
     [SerializeField] private ParticleSystem smallExp, mediumExp, bigExp;
     [SerializeField] private float magneticTimeLeft = 0f;
     [SerializeField] private float magneticTimeCooldown;
-    [SerializeField] private float timeSpawnMagnetic = 0f;
-    [SerializeField] private float timeDelaySpawnMagnetic = 0.3f;
-    [SerializeField] private bool isMagnetic;
 
     [Space(25)]
     [Header("BOLT")]
@@ -34,6 +31,15 @@ public class MagneticElectricField : MonoBehaviour
     [SerializeField] private bool isShotBolt;
 
     private Animator animator;
+    private string currentState;
+    private bool isAttackPressed;
+    private bool isAttacking;
+
+    //Animation States
+    const string SHOT_ELECTRIC_BOLT = "Shot Electric Bolt";
+    const string MAGNETIC_ELECTRIC_FIELD = "Magnetic Electric Field";
+    const string JUMP_DOWN_STANDING = "Jump Down Standing";
+    const string MAGNETIC_ELECTRIC_FIELD_JUMP = "Shot Electric Bolt (Jump)";
 
     // Start is called before the first frame update
     void Start()
@@ -62,22 +68,9 @@ public class MagneticElectricField : MonoBehaviour
 
         if ((Input.GetKeyDown(KeyCode.Mouse0)) && (!Input.GetKeyDown(KeyCode.Mouse1)))
         {
-            //if (isMagnetic == true)
-            //{
-            //    if (timeSpawnMagnetic < timeDelaySpawnMagnetic)
-            //    {
-            //        timeSpawnMagnetic = timeSpawnMagnetic + 1f * Time.deltaTime;
-            //    }
-            //    else if (timeSpawnMagnetic >= timeDelaySpawnMagnetic)
-            //    {
-            //        timeSpawnMagnetic = 0;
-            //        Instantiate(boltPrefab, spawnPoint.position, transform.rotation);
-            //        AudioManager.instance.electricFieldSound(AudioManager.instance.electricField);
-            //        isMagnetic = false;
-            //    }
-            //}
             if (magneticTimeLeft <= 0)
             {
+                animator.SetBool("IsMoving", false);
                 magneticTimeLeft = magneticTimeCooldown;
 
                 if (EnergyAmount >= 0.4f && EnergyAmount < 0.7f)
@@ -86,7 +79,18 @@ public class MagneticElectricField : MonoBehaviour
                     EnergyBar.fillAmount = EnergyAmount;
                     StartCoroutine(ActiveElecField(SmallExplore));
                     smallExp.Play();
-                    animator.SetTrigger("IsMagnetic");
+                    //animator.SetTrigger("IsMagnetic");
+
+                    if (player.isGrounded == true)
+                    {
+                        ChangeAnimationState(MAGNETIC_ELECTRIC_FIELD);
+                    }
+                    else
+                    {
+                        ChangeAnimationState(MAGNETIC_ELECTRIC_FIELD);
+                        ChangeAnimationState2(JUMP_DOWN_STANDING);
+                    }
+
                     Debug.Log("Small");
                     //CloseToGenerator = false;
 
@@ -98,7 +102,18 @@ public class MagneticElectricField : MonoBehaviour
                     EnergyBar.fillAmount = EnergyAmount;
                     StartCoroutine(ActiveElecField(MediumExplore));
                     mediumExp.Play();
-                    animator.SetTrigger("IsMagnetic");
+                    //animator.SetTrigger("IsMagnetic");
+
+                    if (player.isGrounded == true)
+                    {
+                        ChangeAnimationState(MAGNETIC_ELECTRIC_FIELD);
+                    }
+                    else
+                    {
+                        ChangeAnimationState(MAGNETIC_ELECTRIC_FIELD);
+                        ChangeAnimationState2(JUMP_DOWN_STANDING);
+                    }
+
                     Debug.Log("Medium");
                     //CloseToGenerator = false;
                     AudioManager.instance.electricFieldSound(AudioManager.instance.electricField);
@@ -109,7 +124,18 @@ public class MagneticElectricField : MonoBehaviour
                     EnergyBar.fillAmount = EnergyAmount;
                     StartCoroutine(ActiveElecField(BigExplore));
                     bigExp.Play();
-                    animator.SetTrigger("IsMagnetic");
+                    //animator.SetTrigger("IsMagnetic");
+
+                    if (player.isGrounded == true)
+                    {
+                        ChangeAnimationState(MAGNETIC_ELECTRIC_FIELD);
+                    }
+                    else
+                    {
+                        ChangeAnimationState(MAGNETIC_ELECTRIC_FIELD);
+                        ChangeAnimationState2(JUMP_DOWN_STANDING);
+                    }
+
                     Debug.Log("Big");
                     //CloseToGenerator = false;
                     AudioManager.instance.electricFieldSound(AudioManager.instance.electricField);
@@ -147,10 +173,20 @@ public class MagneticElectricField : MonoBehaviour
         {
             if (shotTimeLeft <= 0)
             {
-                animator.SetTrigger("IsShot");
+                animator.SetBool("IsMoving", false);
+                //animator.SetTrigger("IsShot");
+                if (player.isGrounded == true)
+                {
+                    ChangeAnimationState(SHOT_ELECTRIC_BOLT);
+                }
+                else
+                {
+                    ChangeAnimationState(SHOT_ELECTRIC_BOLT);
+                    ChangeAnimationState2(JUMP_DOWN_STANDING);
+                }
+
                 isShotBolt = true;
                 shotTimeLeft = shotTimeCooldown;
-
                 //if (EnergyAmount >= 0.3f)
                 //{
                 //    EnergyAmount -= 0.3f;
@@ -159,32 +195,6 @@ public class MagneticElectricField : MonoBehaviour
                 //    //Debug.Log("Bolt");
                 //}
             }
-
-            //if (Time.time - player.lastGroundTime <= player.jumpButtonGracePeriod)
-            //{
-            //    if (shotTimeLeft <= 0)
-            //    {
-            //        Debug.Log("Shot disable");
-            //    }
-            //}
-            //else
-            //{
-            //    Debug.Log("Shot disable");
-            //    if (shotTimeLeft <= 0)
-            //    {
-            //        animator.SetTrigger("IsShot");
-            //        isShotBolt = true;
-            //        shotTimeLeft = shotTimeDuration;
-
-            //        //if (EnergyAmount >= 0.3f)
-            //        //{
-            //        //    EnergyAmount -= 0.3f;
-            //        //    Instantiate(boltPrefab, spawnPoint.position, transform.rotation);
-            //        //    AudioManager.instance.electricBoltSound(AudioManager.instance.electricBolt);
-            //        //    //Debug.Log("Bolt");
-            //        //}
-            //    }
-            //}
         }
         #endregion;
 
@@ -248,23 +258,6 @@ public class MagneticElectricField : MonoBehaviour
         //CloseToGenerator = false;
     }
 
-    //public void ShotBolt()
-    //{
-    //    if (shotBlocked)
-    //        return;
-    //    animator.SetTrigger("IsShot");
-    //    Instantiate(boltPrefab, spawnPoint.position, transform.rotation);
-    //    AudioManager.instance.electricBoltSound(AudioManager.instance.electricBolt);
-    //    shotBlocked = true;
-    //    StartCoroutine("DelayShot");
-    //}
-
-    //IEnumerator DelayShot()
-    //{
-    //    yield return new WaitForSeconds(delayShot);
-    //    shotBlocked = false;
-    //}
-
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("Generator"))
@@ -317,4 +310,29 @@ public class MagneticElectricField : MonoBehaviour
 
     //    CloseToGenerator = false;
     //}
+
+    void ChangeAnimationState(string newState)
+    {
+        //Stop the same animation from interrupting itself
+        //if (currentState == newState) return;
+
+        //Play the animation
+        animator.Play(newState);
+        //animator.GetComponent<Animator>().Play(newState, -1, 0);
+
+        //Reassign the current state
+        currentState = newState;
+    }
+
+    void ChangeAnimationState2(string newState2)
+    {
+        //Stop the same animation from interrupting itself
+        if (currentState == newState2) return;
+
+        //Play the animation
+        animator.Play(newState2, 1);
+
+        //Reassign the current state
+        currentState = newState2;
+    }
 }

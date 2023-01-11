@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 32ac055c318b43942980b9bf990ff3e9
+guid: 53ef98957d8a1ff47a216f463a2a7d06
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -39,7 +39,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Faith_PickUpBoxAnimation
+      name: Faith_PickUpBoxAnimation_Pose
       takeName: Armature|ArmatureAction
       internalID: 4781951162920444690
       firstFrame: 0
