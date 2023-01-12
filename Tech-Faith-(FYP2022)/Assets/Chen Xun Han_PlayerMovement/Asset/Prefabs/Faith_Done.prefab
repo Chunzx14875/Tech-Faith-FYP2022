@@ -1,5 +1,98 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &798699971
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 798699972}
+  m_Layer: 0
+  m_Name: Head LookAt_IK
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &798699972
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798699971}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3954717170915040665}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &992475860
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 992475861}
+  m_Layer: 0
+  m_Name: Right Hand_IK
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &992475861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 992475860}
+  m_LocalRotation: {x: -0, y: 0.000000007708771, z: 0.000000021389827, w: 1}
+  m_LocalPosition: {x: 0.6, y: 1.7, z: 0.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3954717170915040665}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1638596627
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1638596628}
+  m_Layer: 0
+  m_Name: ShotBoltPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1638596628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638596627}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.65, y: 1.9, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3954717170915040665}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &53692988336314488
 GameObject:
   m_ObjectHideFlags: 0
@@ -18043,7 +18136,7 @@ GameObject:
   - component: {fileID: 3561013791476562559}
   m_Layer: 0
   m_Name: Faith_Done
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18075,6 +18168,9 @@ Transform:
   - {fileID: 3561013791208492865}
   - {fileID: 3561013791149924718}
   - {fileID: 3561013791820822552}
+  - {fileID: 798699972}
+  - {fileID: 992475861}
+  - {fileID: 1638596628}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18137,15 +18233,12 @@ MonoBehaviour:
   smallExp: {fileID: 3561013792656442982}
   mediumExp: {fileID: 3561013792927525440}
   bigExp: {fileID: 3561013791496604781}
-  magneticTimeLeft: 0
-  magneticTimeCooldown: 0
   boltPrefab: {fileID: 2571141496576137634, guid: eec9425584ff3a5429222e24e6280af6, type: 3}
-  spawnPoint: {fileID: 3561013791717229609}
-  shotTimeLeft: 0
-  shotTimeCooldown: 0
+  spawnPoint: {fileID: 1638596628}
   timeSpawnBolt: 0
   timeDelaySpawnBolt: 0.3
   isShotBolt: 0
+  pressTimeLeft: 0
 --- !u!114 &3561013791476562558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18162,6 +18255,8 @@ MonoBehaviour:
   RaycastFrom: {fileID: 3561013792284175331}
   pickUpRange: 5
   pickUpForce: 100
+  isPick: 0
+  pickUpDelay: 0.7
 --- !u!114 &3561013791476562559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18180,12 +18275,18 @@ MonoBehaviour:
   jumpHorizontalSpeed: 5
   jumpButtonGracePeriod: 0.2
   cameraTransform: {fileID: 0}
+  isJumping: 0
   isGrounded: 0
   gameMenuCanvas: {fileID: 0}
   NumberOfShield: 3
   FirstShield: {fileID: 3561013791208492870}
   SecondShield: {fileID: 3561013791149924707}
   ThirdShield: {fileID: 3561013791820822557}
+  pressDelay: 2
+  pressTimeLeft: 0
+  pressTimeCooldown: 2
+  isPressed: 0
+  isPressedPickObj: 0
 --- !u!1 &4488822222642241063
 GameObject:
   m_ObjectHideFlags: 0

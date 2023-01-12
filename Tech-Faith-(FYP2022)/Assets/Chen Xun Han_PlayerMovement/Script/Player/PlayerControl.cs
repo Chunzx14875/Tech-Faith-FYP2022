@@ -38,6 +38,14 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private GameObject ThirdShield;
     bool isInvincible = false;
 
+    [Space(25)]
+    [Header("PRESS BUTTON DELAY")]
+    public float pressDelay = 2f;
+    public float pressTimeLeft = 2;
+    public float pressTimeCooldown;
+    public bool isPressed;
+    public bool isPressedPickObj;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -53,6 +61,21 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
+        //Press Button Cooldown
+        if (pressTimeLeft >= 0)
+        {
+            pressTimeLeft -= 1 * Time.deltaTime;
+        }
+        else if (pressTimeLeft <= 0)
+        {
+            pressTimeLeft = 0;
+
+            if(!isPressedPickObj)
+            {
+                isPressed = false;
+            }
+        }
+
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 

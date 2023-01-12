@@ -19,10 +19,9 @@ public class PickUpAndDrop : MonoBehaviour
 
     PlayerControl player;
     private Animator animator;
-    private string currentState;
-    private bool isPick;
-
+    [SerializeField] private bool isPick;
     [SerializeField] private float pickUpDelay = 1f;
+    private string currentState;
 
     //Animation States
     const string PICK_OBJECT = "Pick Object";
@@ -50,6 +49,8 @@ public class PickUpAndDrop : MonoBehaviour
                     {
                         if (!isPick)
                         {
+                            player.isPressed = true;
+                            player.isPressedPickObj = true;
                             isPick = true;
                             ChangeAnimationState(PICK_OBJECT);
                             PickUpObject(hit.transform.gameObject);
@@ -60,8 +61,11 @@ public class PickUpAndDrop : MonoBehaviour
             }
             else if (heldObj != null && isPick == false)
             {
+                player.isPressed = false;
+                player.isPressedPickObj = false;
                 animator.SetLayerWeight(2, 0f);
                 DropObject();
+                Debug.Log("drop");
             }
         }
 

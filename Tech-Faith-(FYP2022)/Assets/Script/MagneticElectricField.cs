@@ -17,29 +17,23 @@ public class MagneticElectricField : MonoBehaviour
     [SerializeField] private GameObject MediumExplore;
     [SerializeField] private GameObject BigExplore;
     [SerializeField] private ParticleSystem smallExp, mediumExp, bigExp;
-    [SerializeField] private float magneticTimeLeft = 0f;
-    [SerializeField] private float magneticTimeCooldown;
 
     [Space(25)]
     [Header("BOLT")]
     [SerializeField] GameObject boltPrefab;
     [SerializeField] Transform spawnPoint;
-    [SerializeField] private float shotTimeLeft = 0f;
-    [SerializeField] private float shotTimeCooldown;
     [SerializeField] private float timeSpawnBolt = 0f;
     [SerializeField] private float timeDelaySpawnBolt = 0.3f;
     [SerializeField] private bool isShotBolt;
+    [SerializeField] private float pressTimeLeft;
 
     private Animator animator;
     private string currentState;
-    private bool isAttackPressed;
-    private bool isAttacking;
 
     //Animation States
     const string SHOT_ELECTRIC_BOLT = "Shot Electric Bolt";
     const string MAGNETIC_ELECTRIC_FIELD = "Magnetic Electric Field";
     const string JUMP_DOWN_STANDING = "Jump Down Standing";
-    const string MAGNETIC_ELECTRIC_FIELD_JUMP = "Shot Electric Bolt (Jump)";
 
     // Start is called before the first frame update
     void Start()
@@ -57,21 +51,14 @@ public class MagneticElectricField : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (magneticTimeLeft >= 0)
+        if ((Input.GetKeyDown(KeyCode.Mouse0)) && (player.isPressed == false))
         {
-            magneticTimeLeft -= 1 * Time.deltaTime;
-        }
-        else if (magneticTimeLeft <= 0)
-        {
-            magneticTimeLeft = 0;
-        }
+            player.isPressed = true;
 
-        if ((Input.GetKeyDown(KeyCode.Mouse0)) && (!Input.GetKeyDown(KeyCode.Mouse1)))
-        {
-            if (magneticTimeLeft <= 0)
+            if (player.isPressed == true)
             {
+                player.pressTimeLeft = player.pressTimeCooldown;
                 animator.SetBool("IsMoving", false);
-                magneticTimeLeft = magneticTimeCooldown;
 
                 if (EnergyAmount >= 0.4f && EnergyAmount < 0.7f)
                 {
@@ -79,7 +66,6 @@ public class MagneticElectricField : MonoBehaviour
                     EnergyBar.fillAmount = EnergyAmount;
                     StartCoroutine(ActiveElecField(SmallExplore));
                     smallExp.Play();
-                    //animator.SetTrigger("IsMagnetic");
 
                     if (player.isGrounded == true)
                     {
@@ -102,7 +88,6 @@ public class MagneticElectricField : MonoBehaviour
                     EnergyBar.fillAmount = EnergyAmount;
                     StartCoroutine(ActiveElecField(MediumExplore));
                     mediumExp.Play();
-                    //animator.SetTrigger("IsMagnetic");
 
                     if (player.isGrounded == true)
                     {
@@ -124,7 +109,6 @@ public class MagneticElectricField : MonoBehaviour
                     EnergyBar.fillAmount = EnergyAmount;
                     StartCoroutine(ActiveElecField(BigExplore));
                     bigExp.Play();
-                    //animator.SetTrigger("IsMagnetic");
 
                     if (player.isGrounded == true)
                     {
@@ -145,15 +129,6 @@ public class MagneticElectricField : MonoBehaviour
         }
 
         #region Shot Bolt Function
-        if (shotTimeLeft >= 0)
-        {
-            shotTimeLeft -= 1 * Time.deltaTime;
-        }
-        else if (shotTimeLeft <= 0)
-        {
-            shotTimeLeft = 0;
-        }
-
         if (isShotBolt == true)
         {
             if (timeSpawnBolt < timeDelaySpawnBolt)
@@ -169,12 +144,16 @@ public class MagneticElectricField : MonoBehaviour
             }
         }
 
-        if ((Input.GetKeyDown(KeyCode.Mouse1)) && (!Input.GetKeyDown(KeyCode.Mouse0)))
+        if ((Input.GetKeyDown(KeyCode.Mouse1)) && (player.isPressed == false))
         {
-            if (shotTimeLeft <= 0)
+            player.isPressed = true;
+
+            if (player.isPressed == true)
             {
+                player.pressTimeLeft = player.pressTimeCooldown;
+
                 animator.SetBool("IsMoving", false);
-                //animator.SetTrigger("IsShot");
+
                 if (player.isGrounded == true)
                 {
                     ChangeAnimationState(SHOT_ELECTRIC_BOLT);
@@ -186,7 +165,7 @@ public class MagneticElectricField : MonoBehaviour
                 }
 
                 isShotBolt = true;
-                shotTimeLeft = shotTimeCooldown;
+
                 //if (EnergyAmount >= 0.3f)
                 //{
                 //    EnergyAmount -= 0.3f;
