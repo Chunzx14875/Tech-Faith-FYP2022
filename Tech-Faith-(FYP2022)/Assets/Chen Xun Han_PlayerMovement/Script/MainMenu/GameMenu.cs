@@ -8,7 +8,7 @@ public class GameMenu : MonoBehaviour
 {
     [Header("GAME MENU")]
     [SerializeField] GameObject option;
-    [SerializeField] bool openOption = false;
+    public bool openOption = false;
 
     [Space(25)]
     [Header("CHASING")]

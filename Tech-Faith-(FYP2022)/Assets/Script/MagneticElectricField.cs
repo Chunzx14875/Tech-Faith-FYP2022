@@ -9,7 +9,6 @@ public class MagneticElectricField : MonoBehaviour
     [SerializeField] private float increasefillSpeed = 4;
     [HideInInspector] public float EnergyAmount = 0f;
     bool CloseToGenerator = false;
-    PlayerControl player;
 
     [Space(25)]
     [Header("MAGNETIC")]
@@ -27,6 +26,8 @@ public class MagneticElectricField : MonoBehaviour
     [SerializeField] private bool isShotBolt;
     [SerializeField] private float pressTimeLeft;
 
+    PlayerControl player;
+    GameMenu gameMenu;
     private Animator animator;
     private string currentState;
 
@@ -40,6 +41,7 @@ public class MagneticElectricField : MonoBehaviour
     {
         //CloseToGenerator = false;
         player = GetComponent<PlayerControl>();
+        gameMenu = player.gameMenuCanvas.GetComponent<GameMenu>();
         animator = GetComponent<Animator>();
         SmallExplore.SetActive(false);
         MediumExplore.SetActive(false);
@@ -51,9 +53,10 @@ public class MagneticElectricField : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.Mouse0)) && (player.isPressed == false))
+        if ((Input.GetKeyDown(KeyCode.Mouse0)) && (player.isPressed == false) && (gameMenu.openOption == false))
         {
             player.isPressed = true;
+            player.disableInput = true;
 
             if (player.isPressed == true)
             {
@@ -124,6 +127,8 @@ public class MagneticElectricField : MonoBehaviour
                     //CloseToGenerator = false;
                     AudioManager.instance.electricFieldSound(AudioManager.instance.electricField);
                 }
+
+                Invoke("pressComplete", player.delayPlayerInput);
             }
             
         }
@@ -144,9 +149,10 @@ public class MagneticElectricField : MonoBehaviour
             }
         }
 
-        if ((Input.GetKeyDown(KeyCode.Mouse1)) && (player.isPressed == false))
+        if ((Input.GetKeyDown(KeyCode.Mouse1)) && (player.isPressed == false) && (gameMenu.openOption == false))
         {
             player.isPressed = true;
+            player.disableInput = true;
 
             if (player.isPressed == true)
             {
@@ -165,6 +171,7 @@ public class MagneticElectricField : MonoBehaviour
                 }
 
                 isShotBolt = true;
+                Invoke("pressComplete", player.delayPlayerInput);
 
                 //if (EnergyAmount >= 0.3f)
                 //{
@@ -228,6 +235,10 @@ public class MagneticElectricField : MonoBehaviour
 
     //}
 
+    void pressComplete()
+    {
+        player.disableInput = false;
+    }
 
     IEnumerator ActiveElecField(GameObject field)
     {

@@ -18282,11 +18282,12 @@ MonoBehaviour:
   FirstShield: {fileID: 3561013791208492870}
   SecondShield: {fileID: 3561013791149924707}
   ThirdShield: {fileID: 3561013791820822557}
-  pressDelay: 2
   pressTimeLeft: 0
   pressTimeCooldown: 2
   isPressed: 0
   isPressedPickObj: 0
+  delayPlayerInput: 0.5
+  disableInput: 0
 --- !u!1 &4488822222642241063
 GameObject:
   m_ObjectHideFlags: 0

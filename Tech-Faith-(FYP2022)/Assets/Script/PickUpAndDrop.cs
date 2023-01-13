@@ -16,11 +16,16 @@ public class PickUpAndDrop : MonoBehaviour
     [Space(1)]
     [SerializeField] private float pickUpRange = 2f;
     [SerializeField] private float pickUpForce = 100f;
+    [Space(5)]
 
-    PlayerControl player;
-    private Animator animator;
+    [Header("FUNCTIONS DELAY")]
+    [Space(1)]
     [SerializeField] private bool isPick;
     [SerializeField] private float pickUpDelay = 1f;
+
+    PlayerControl player;
+    GameMenu gameMenu;
+    private Animator animator;
     private string currentState;
 
     //Animation States
@@ -30,14 +35,15 @@ public class PickUpAndDrop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
         player = GetComponent<PlayerControl>();
+        gameMenu = player.gameMenuCanvas.GetComponent<GameMenu>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E) && (gameMenu.openOption == false))
         {
             if (heldObj == null)
             {
@@ -49,18 +55,24 @@ public class PickUpAndDrop : MonoBehaviour
                     {
                         if (!isPick)
                         {
+                            animator.SetBool("IsMoving", false);
+
                             player.isPressed = true;
                             player.isPressedPickObj = true;
+                            player.disableInput = true;
                             isPick = true;
                             ChangeAnimationState(PICK_OBJECT);
                             PickUpObject(hit.transform.gameObject);
                             Invoke("PickComplete", pickUpDelay);
+                            Invoke("pressComplete", 1);
                         }
                     }
                 }
             }
             else if (heldObj != null && isPick == false)
             {
+                animator.SetBool("IsMoving", false);
+
                 player.isPressed = false;
                 player.isPressedPickObj = false;
                 animator.SetLayerWeight(2, 0f);
@@ -86,6 +98,11 @@ public class PickUpAndDrop : MonoBehaviour
     {
         isPick = false;
         animator.SetLayerWeight(2, 1f);
+    }
+
+    void pressComplete()
+    {
+        player.disableInput = false;
     }
 
     void MoveObject()

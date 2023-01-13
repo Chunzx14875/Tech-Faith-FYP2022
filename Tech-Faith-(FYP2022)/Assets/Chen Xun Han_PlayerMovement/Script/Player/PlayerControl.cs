@@ -6,6 +6,8 @@ public class PlayerControl : MonoBehaviour
 {
     [Header("MOVEMENT")]
     //[Space(15)]
+    Vector3 movementDirection;
+    float inputMagnitude;
     [SerializeField] private float maximumSpeed;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float jumpSpeed;
@@ -40,11 +42,16 @@ public class PlayerControl : MonoBehaviour
 
     [Space(25)]
     [Header("PRESS BUTTON DELAY")]
-    public float pressDelay = 2f;
+    [Header("FUNCTIONS DELAY")]
     public float pressTimeLeft = 2;
     public float pressTimeCooldown;
     public bool isPressed;
     public bool isPressedPickObj;
+
+    [Space(5)]
+    [Header("PLAYER MOVEMENT INPUT DELAY")]
+    public float delayPlayerInput = 0.5f;
+    public bool disableInput;
 
     void Start()
     {
@@ -76,22 +83,38 @@ public class PlayerControl : MonoBehaviour
             }
         }
 
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        if (disableInput == false)
+        {
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
 
-        Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
-        float inputMagnitude = Mathf.Clamp01(movementDirection.magnitude);
+            movementDirection = new Vector3(horizontalInput, 0, verticalInput);
+            inputMagnitude = Mathf.Clamp01(movementDirection.magnitude);
 
-        //if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
-        //{
-        //    //inputMagnitude /= 2;
-        //    inputMagnitude *= 2;
-        //}
+            animator.SetFloat("Input Magnitude", inputMagnitude, 0.05f, Time.deltaTime);
+            movementDirection = Quaternion.AngleAxis(cameraTransform.rotation.eulerAngles.y, Vector3.up) * movementDirection;
+            movementDirection.Normalize();
 
-        animator.SetFloat("Input Magnitude", inputMagnitude, 0.05f, Time.deltaTime);
-        //float speed = inputMagnitude * maximumSpeed; 
-        movementDirection = Quaternion.AngleAxis(cameraTransform.rotation.eulerAngles.y, Vector3.up) * movementDirection;
-        movementDirection.Normalize();
+            if (movementDirection != Vector3.zero)
+            {
+                animator.SetBool("IsMoving", true);
+
+                Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+            }
+            else
+            {
+                animator.SetBool("IsMoving", false);
+            }
+        }
+
+        if (isGrounded == false)
+        {
+            Vector3 velocity = movementDirection * inputMagnitude * jumpHorizontalSpeed;
+            velocity.y = ySpeed;
+
+            characterController.Move(velocity * Time.deltaTime);
+        }
 
         ySpeed += Physics.gravity.y * Time.deltaTime;
 
@@ -100,7 +123,7 @@ public class PlayerControl : MonoBehaviour
             lastGroundTime = Time.time;
         }
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") &&(disableInput == false))
         {
             jumpButtonPressedTime = Time.time;
             //Debug.Log("Jump");
@@ -138,31 +161,7 @@ public class PlayerControl : MonoBehaviour
             }
         }
 
-        //Vector3 velocity = movementDirection * speed;
-        //velocity.y = ySpeed;
-
-        //characterController.Move(velocity * Time.deltaTime);
-
-        if (movementDirection != Vector3.zero)
-        {
-            animator.SetBool("IsMoving", true);
-
-            Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
-        }
-        else
-        {
-            animator.SetBool("IsMoving", false);
-        }
-
-        if (isGrounded == false)
-        {
-            Vector3 velocity = movementDirection * inputMagnitude * jumpHorizontalSpeed;
-            velocity.y = ySpeed;
-
-            characterController.Move(velocity * Time.deltaTime);
-        }
-
+      
         ActiveShield();
     }
 
