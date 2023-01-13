@@ -62,6 +62,7 @@ public class PickUpAndDrop : MonoBehaviour
                             player.disableInput = true;
                             isPick = true;
                             ChangeAnimationState(PICK_OBJECT);
+                            animator.SetLayerWeight(1, 0f);
                             PickUpObject(hit.transform.gameObject);
                             Invoke("PickComplete", pickUpDelay);
                             Invoke("pressComplete", 1);
@@ -97,6 +98,7 @@ public class PickUpAndDrop : MonoBehaviour
     void PickComplete()
     {
         isPick = false;
+        animator.SetLayerWeight(1, 1f);
         animator.SetLayerWeight(2, 1f);
     }
 

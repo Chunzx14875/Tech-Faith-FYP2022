@@ -73,6 +73,7 @@ public class MagneticElectricField : MonoBehaviour
                     if (player.isGrounded == true)
                     {
                         ChangeAnimationState(MAGNETIC_ELECTRIC_FIELD);
+                        //animator.SetLayerWeight(1, 0f);
                     }
                     else
                     {
@@ -95,6 +96,7 @@ public class MagneticElectricField : MonoBehaviour
                     if (player.isGrounded == true)
                     {
                         ChangeAnimationState(MAGNETIC_ELECTRIC_FIELD);
+                        //animator.SetLayerWeight(1, 0f);
                     }
                     else
                     {
@@ -116,6 +118,7 @@ public class MagneticElectricField : MonoBehaviour
                     if (player.isGrounded == true)
                     {
                         ChangeAnimationState(MAGNETIC_ELECTRIC_FIELD);
+                        //animator.SetLayerWeight(1, 0f);
                     }
                     else
                     {
@@ -163,6 +166,7 @@ public class MagneticElectricField : MonoBehaviour
                 if (player.isGrounded == true)
                 {
                     ChangeAnimationState(SHOT_ELECTRIC_BOLT);
+                    //animator.SetLayerWeight(1, 0f);
                 }
                 else
                 {
@@ -238,6 +242,7 @@ public class MagneticElectricField : MonoBehaviour
     void pressComplete()
     {
         player.disableInput = false;
+        animator.SetLayerWeight(1, 1f);
     }
 
     IEnumerator ActiveElecField(GameObject field)
