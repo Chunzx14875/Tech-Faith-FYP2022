@@ -61,7 +61,7 @@ public class MagneticElectricField : MonoBehaviour
             if (player.isPressed == true)
             {
                 player.pressTimeLeft = player.pressTimeCooldown;
-                animator.SetBool("IsMoving", false);
+                //animator.SetBool("IsMoving", false);
 
                 if (EnergyAmount >= 0.4f && EnergyAmount < 0.7f)
                 {
@@ -161,7 +161,7 @@ public class MagneticElectricField : MonoBehaviour
             {
                 player.pressTimeLeft = player.pressTimeCooldown;
 
-                animator.SetBool("IsMoving", false);
+                //animator.SetBool("IsMoving", false);
 
                 if (player.isGrounded == true)
                 {
