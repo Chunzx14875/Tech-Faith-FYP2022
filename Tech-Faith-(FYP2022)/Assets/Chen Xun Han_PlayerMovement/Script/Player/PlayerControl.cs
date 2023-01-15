@@ -68,7 +68,7 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
-        //Press Button Cooldown
+        //PRESS BUTTON COOLDOWN
         if (pressTimeLeft >= 0)
         {
             pressTimeLeft -= 1 * Time.deltaTime;

@@ -31,6 +31,7 @@ public class PickUpAndDrop : MonoBehaviour
     //Animation States
     const string PICK_OBJECT = "Pick Object";
     const string JUMP_DOWN_STANDING = "Jump Down Standing";
+    const string MOVING = "Movement Blend Tree";
 
     // Start is called before the first frame update
     void Start()
