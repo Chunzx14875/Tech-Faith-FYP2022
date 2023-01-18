@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class Enemy1 : MonoBehaviour
 {
@@ -38,11 +39,18 @@ public class Enemy1 : MonoBehaviour
     private float currentSpeed;
 
     [Space(25)]
+    [Header("HP VALUE")]
+    float HpValue = 1f;
+    [SerializeField] private Image HpBarFill;
+
+    [Space(25)]
     [Header("AUDIO SOURCE")]
     public AudioSource shotLaserSound;
     public AudioSource getHitSound;
     [SerializeField] GameObject explodeSoundPrefab;
     [SerializeField] Transform spawnExplodeSoundPos;
+
+    
 
     void Start()
     {
@@ -54,6 +62,8 @@ public class Enemy1 : MonoBehaviour
         StunParticle.SetActive(false);
 
         StartCoroutine("audioUpdate");
+
+        HpBarFill.fillAmount = HpValue;
     }
 
     void Update()
@@ -152,11 +162,11 @@ public class Enemy1 : MonoBehaviour
     {
         if(other.CompareTag("ElectricField"))
         {
-            StopCoroutine("stunDuration");
-            StopCoroutine("stunDurationEffect");
+            //StopCoroutine("stunDuration");
+            //StopCoroutine("stunDurationEffect");
             transform.DOKill();
             Instantiate(explodeSoundPrefab, spawnExplodeSoundPos.position, transform.rotation);
-            Destroy(gameObject); 
+            BeingHurted(); 
         }
         else if (other.CompareTag("Bolt"))
         {
@@ -183,6 +193,20 @@ public class Enemy1 : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, playerCheckDistance);
+    }
+
+    void BeingHurted()
+    {
+        if(HpValue > 0f)
+        {
+            HpValue -= 0.55f;
+            HpBarFill.fillAmount = HpValue;
+            
+        }
+        if (HpValue <= 0f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     IEnumerator stunDuration()
