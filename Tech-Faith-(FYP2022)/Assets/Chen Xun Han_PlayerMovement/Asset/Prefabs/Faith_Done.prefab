@@ -18286,7 +18286,7 @@ MonoBehaviour:
   pressTimeCooldown: 2
   isPressed: 0
   isPressedPickObj: 0
-  delayPlayerInput: 0.5
+  delayPlayerInput: 0.7
   disableInput: 0
 --- !u!1 &4488822222642241063
 GameObject:
