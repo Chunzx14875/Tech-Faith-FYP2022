@@ -9,6 +9,11 @@ public class HpBarFaceToCam : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        transform.LookAt(cam);        
+        transform.LookAt(transform.position + cam.transform.rotation * Vector3.forward, cam.transform.rotation * Vector3.up);
     }
+
+    //void LateUpdate()
+    //{
+    //    transform.LookAt(cam);        
+    //}
 }
