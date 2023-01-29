@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 6671328079789860766}
   - component: {fileID: 8895074096520778580}
   - component: {fileID: 7380031586667333951}
+  - component: {fileID: 1254174707}
   m_Layer: 0
   m_Name: Basic Switch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 65
   m_IsActive: 1
 --- !u!4 &7726639978905184315
 Transform:
@@ -26,14 +27,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6949435425044427393}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: 0, y: 0.067, z: -20.374}
-  m_LocalScale: {x: 45.000004, y: 47.237747, z: 511.36365}
+  m_LocalScale: {x: 27.544, y: 28.913698, z: 313}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &6671328079789860766
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -100,3 +101,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5287425419667122880, guid: c60b0b63943b4f64ca5d45b2215248b9, type: 3}
+--- !u!114 &1254174707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6949435425044427393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b04471a6f0f86c5499f8f318b1951a44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TouchBox: 0
