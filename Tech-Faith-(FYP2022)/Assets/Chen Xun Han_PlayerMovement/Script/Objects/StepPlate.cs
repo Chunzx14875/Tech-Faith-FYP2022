@@ -28,8 +28,8 @@ public class StepPlate : MonoBehaviour
     {
         if (other.CompareTag("Player") || other.CompareTag("Enemy"))
         {
-            doorLeft.DOMove(new Vector3(2, doorLeft.transform.position.y, doorLeft.transform.position.z), 2);
-            doorRight.DOMove(new Vector3(-2, doorRight.transform.position.y, doorRight.transform.position.z), 2);
+            doorLeft.DOLocalMoveX(2.5f, 2);
+            doorRight.DOLocalMoveX(-2.5f, 2);
         }
     }
 
@@ -39,8 +39,6 @@ public class StepPlate : MonoBehaviour
         {
             doorLeft.DOMove(new Vector3(doorLeftStartPos.x, doorLeftStartPos.y, doorLeftStartPos.z), 2);
             doorRight.DOMove(new Vector3(doorRightStartPos.x, doorRightStartPos.y, doorRightStartPos.z), 2);
-            //doorRight.DOLocalMove(new Vector3(-1.7f, doorLeft.transform.position.y, 0), 1);
-            //doorLeft.DOLocalMove(new Vector3(1.7f, doorRight.transform.position.y, 0), 1);
         }
     }
 }

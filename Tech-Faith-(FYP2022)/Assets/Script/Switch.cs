@@ -39,8 +39,8 @@ public class Switch : MonoBehaviour
         {
             TouchBox = true;
 
-            doorLeft.DOMove(new Vector3(2, doorLeft.transform.position.y, doorLeft.transform.position.z), 2);
-            doorRight.DOMove(new Vector3(-2, doorRight.transform.position.y, doorRight.transform.position.z), 2);
+            doorLeft.DOLocalMoveX(2.5f, 2);
+            doorRight.DOLocalMoveX(-2.5f, 2);
         }
     }
 
