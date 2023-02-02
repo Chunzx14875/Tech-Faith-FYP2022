@@ -84,7 +84,7 @@ public class MainMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         //SceneManager.LoadScene("SampleScene");
-        SceneManager.LoadScene("Sample Layout");
+        SceneManager.LoadScene("Tutorial level");
     }
 
     public void level1()
