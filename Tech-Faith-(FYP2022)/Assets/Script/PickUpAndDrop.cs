@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PickUpAndDrop : MonoBehaviour
 {
@@ -44,7 +45,8 @@ public class PickUpAndDrop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && (gameMenu.openOption == false))
+
+        if (Input.GetKeyDown(KeyCode.E) && (gameMenu.openOption == false))
         {
             if (heldObj == null)
             {
@@ -52,8 +54,10 @@ public class PickUpAndDrop : MonoBehaviour
 
                 if (Physics.Raycast(RaycastFrom.transform.position, transform.forward, out hit, pickUpRange))
                 {
+
                     if (hit.transform.gameObject.CompareTag("CanPick"))
                     {
+
                         if (!isPick)
                         {
                             animator.SetBool("IsMoving", false);
@@ -67,8 +71,10 @@ public class PickUpAndDrop : MonoBehaviour
                             PickUpObject(hit.transform.gameObject);
                             Invoke("PickComplete", pickUpDelay);
                             Invoke("pressComplete", 1);
+
                         }
                     }
+
                 }
             }
             else if (heldObj != null && isPick == false)
@@ -80,10 +86,69 @@ public class PickUpAndDrop : MonoBehaviour
                 animator.SetLayerWeight(2, 0f);
                 DropObject();
                 Debug.Log("drop");
+
             }
         }
 
-        if(heldObj != null)
+
+        //RaycastHit hit;
+
+        //if (Physics.Raycast(RaycastFrom.transform.position, transform.forward, out hit, pickUpRange))
+        //{
+        //    if (hit.transform.gameObject.CompareTag("CanPick") && !isPick)
+        //    {
+        //        HintBox.instance.TextBox.SetActive(true);
+        //        HintBox.instance.hintText.text = "Press 'E' to pick up";
+        //    }
+
+        //    if (Input.GetKeyDown(KeyCode.E) && (gameMenu.openOption == false))
+        //    {
+        //        if (heldObj == null)
+        //        {
+        //            if (hit.transform.gameObject.CompareTag("CanPick"))
+        //            {
+        //                HintBox.instance.TextBox.SetActive(true);
+        //                HintBox.instance.hintText.text = "Press 'E' to drop";
+
+        //                if (!isPick)
+        //                {
+        //                    animator.SetBool("IsMoving", false);
+
+        //                    player.isPressed = true;
+        //                    player.isPressedPickObj = true;
+        //                    player.disableInput = true;
+        //                    isPick = true;
+        //                    ChangeAnimationState(PICK_OBJECT);
+        //                    animator.SetLayerWeight(1, 0f);
+        //                    PickUpObject(hit.transform.gameObject);
+        //                    Invoke("PickComplete", pickUpDelay);
+        //                    Invoke("pressComplete", 1);
+
+        //                    HintBox.instance.TextBox.SetActive(true);
+        //                    HintBox.instance.hintText.text = "Press 'E' to drop";
+
+        //                }
+        //            }
+        //        }
+        //        else if (heldObj != null && isPick == false)
+        //        {
+        //            animator.SetBool("IsMoving", false);
+
+        //            player.isPressed = false;
+        //            player.isPressedPickObj = false;
+        //            animator.SetLayerWeight(2, 0f);
+        //            DropObject();
+        //            Debug.Log("drop");
+        //        }
+        //    }
+        //}
+        //else
+        //{
+        //    HintBox.instance.TextBox.SetActive(false);
+        //    HintBox.instance.hintText.text = "";
+        //}
+
+        if (heldObj != null)
         {
             MoveObject();
         }

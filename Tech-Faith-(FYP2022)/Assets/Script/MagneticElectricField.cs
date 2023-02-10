@@ -16,6 +16,7 @@ public class MagneticElectricField : MonoBehaviour
     [SerializeField] private GameObject MediumExplore;
     [SerializeField] private GameObject BigExplore;
     [SerializeField] private ParticleSystem smallExp, mediumExp, bigExp;
+    [SerializeField] private ParticleSystem smallSpark, mediumSpark, bigSpark;
 
     [Space(25)]
     [Header("BOLT")]
@@ -53,6 +54,15 @@ public class MagneticElectricField : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(EnergyAmount >= 0.4f)
+        {
+            EnergyBar.color = Color.yellow;
+        }
+        else
+        {
+            EnergyBar.color = Color.red;
+        }
+
         if ((Input.GetKeyDown(KeyCode.Mouse0)) && (player.isPressed == false) && (gameMenu.openOption == false))
         {
             player.isPressed = true;
@@ -69,6 +79,7 @@ public class MagneticElectricField : MonoBehaviour
                     EnergyBar.fillAmount = EnergyAmount;
                     StartCoroutine(ActiveElecField(SmallExplore));
                     smallExp.Play();
+                    smallSpark.Play();
 
                     if (player.isGrounded == true)
                     {
@@ -92,6 +103,7 @@ public class MagneticElectricField : MonoBehaviour
                     EnergyBar.fillAmount = EnergyAmount;
                     StartCoroutine(ActiveElecField(MediumExplore));
                     mediumExp.Play();
+                    mediumSpark.Play();
 
                     if (player.isGrounded == true)
                     {
@@ -114,6 +126,7 @@ public class MagneticElectricField : MonoBehaviour
                     EnergyBar.fillAmount = EnergyAmount;
                     StartCoroutine(ActiveElecField(BigExplore));
                     bigExp.Play();
+                    bigSpark.Play();
 
                     if (player.isGrounded == true)
                     {
