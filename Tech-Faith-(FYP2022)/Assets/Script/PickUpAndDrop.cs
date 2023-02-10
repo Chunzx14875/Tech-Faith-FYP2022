@@ -15,7 +15,7 @@ public class PickUpAndDrop : MonoBehaviour
 
     [Header("Physics Parameters")]
     [Space(1)]
-    [SerializeField] private float pickUpRange = 2f;
+    [SerializeField] private float pickUpRange = 1f;
     [SerializeField] private float pickUpForce = 100f;
     [Space(5)]
 
@@ -45,6 +45,30 @@ public class PickUpAndDrop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        RaycastHit rayhit;
+
+        if (Physics.Raycast(RaycastFrom.transform.position, transform.forward, out rayhit, pickUpRange))
+        {
+            if (rayhit.transform.gameObject.CompareTag("CanPick"))
+            {
+                HintBox.instance.TextBox.SetActive(true);
+                HintBox.instance.hintText.text = "Press 'E' to pick up";
+            }
+            else
+            {
+                HintBox.instance.TextBox.SetActive(false);
+                HintBox.instance.hintText.text = "";
+            }
+        }
+        else
+        {
+            if (heldObj == null)
+            {
+                HintBox.instance.TextBox.SetActive(false);
+                HintBox.instance.hintText.text = "";
+            }
+        }
+
 
         if (Input.GetKeyDown(KeyCode.E) && (gameMenu.openOption == false))
         {
@@ -60,6 +84,7 @@ public class PickUpAndDrop : MonoBehaviour
 
                         if (!isPick)
                         {
+                            //Pick Up object
                             animator.SetBool("IsMoving", false);
 
                             player.isPressed = true;
@@ -71,7 +96,10 @@ public class PickUpAndDrop : MonoBehaviour
                             PickUpObject(hit.transform.gameObject);
                             Invoke("PickComplete", pickUpDelay);
                             Invoke("pressComplete", 1);
+                            pickUpRange = 0;
 
+                            HintBox.instance.TextBox.SetActive(true);
+                            HintBox.instance.hintText.text = "Press 'E' to drop";
                         }
                     }
 
@@ -79,6 +107,12 @@ public class PickUpAndDrop : MonoBehaviour
             }
             else if (heldObj != null && isPick == false)
             {
+                //Drop object
+
+                HintBox.instance.TextBox.SetActive(false);
+                HintBox.instance.hintText.text = "";
+                pickUpRange = 1f;
+
                 animator.SetBool("IsMoving", false);
 
                 player.isPressed = false;
@@ -91,15 +125,6 @@ public class PickUpAndDrop : MonoBehaviour
         }
 
 
-        //RaycastHit hit;
-
-        //if (Physics.Raycast(RaycastFrom.transform.position, transform.forward, out hit, pickUpRange))
-        //{
-        //    if (hit.transform.gameObject.CompareTag("CanPick") && !isPick)
-        //    {
-        //        HintBox.instance.TextBox.SetActive(true);
-        //        HintBox.instance.hintText.text = "Press 'E' to pick up";
-        //    }
 
         //    if (Input.GetKeyDown(KeyCode.E) && (gameMenu.openOption == false))
         //    {
@@ -107,8 +132,6 @@ public class PickUpAndDrop : MonoBehaviour
         //        {
         //            if (hit.transform.gameObject.CompareTag("CanPick"))
         //            {
-        //                HintBox.instance.TextBox.SetActive(true);
-        //                HintBox.instance.hintText.text = "Press 'E' to drop";
 
         //                if (!isPick)
         //                {
@@ -129,9 +152,13 @@ public class PickUpAndDrop : MonoBehaviour
 
         //                }
         //            }
+
         //        }
         //        else if (heldObj != null && isPick == false)
         //        {
+        //            HintBox.instance.TextBox.SetActive(false);
+        //            HintBox.instance.hintText.text = "";
+
         //            animator.SetBool("IsMoving", false);
 
         //            player.isPressed = false;
@@ -147,6 +174,7 @@ public class PickUpAndDrop : MonoBehaviour
         //    HintBox.instance.TextBox.SetActive(false);
         //    HintBox.instance.hintText.text = "";
         //}
+
 
         if (heldObj != null)
         {

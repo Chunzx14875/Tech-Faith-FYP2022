@@ -27974,7 +27974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HoldArea: {fileID: 3561013791717229609}
   RaycastFrom: {fileID: 3561013792284175331}
-  pickUpRange: 5
+  pickUpRange: 1
   pickUpForce: 100
   isPick: 0
   pickUpDelay: 0.7
