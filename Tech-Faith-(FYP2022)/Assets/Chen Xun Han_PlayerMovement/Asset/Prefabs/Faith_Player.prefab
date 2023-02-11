@@ -7073,7 +7073,7 @@ CharacterController:
   m_Height: 2.5
   m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.1
   m_SkinWidth: 0.0001
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1.3, z: 0}
@@ -7095,11 +7095,19 @@ MonoBehaviour:
   jumpHorizontalSpeed: 5
   jumpButtonGracePeriod: 0.2
   cameraTransform: {fileID: 0}
+  isJumping: 0
+  isGrounded: 0
   gameMenuCanvas: {fileID: 0}
   NumberOfShield: 3
   FirstShield: {fileID: 3767065975342584771}
   SecondShield: {fileID: 6522521146956462896}
   ThirdShield: {fileID: 1983524593841273505}
+  pressTimeLeft: 2
+  pressTimeCooldown: 0
+  isPressed: 0
+  isPressedPickObj: 0
+  delayPlayerInput: 0.5
+  disableInput: 0
 --- !u!114 &5527664984175649024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7116,6 +7124,8 @@ MonoBehaviour:
   RaycastFrom: {fileID: 3546100861512823099}
   pickUpRange: 5
   pickUpForce: 100
+  isPick: 0
+  pickUpDelay: 1
 --- !u!114 &5527664984175649025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7129,16 +7139,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnergyBar: {fileID: 0}
+  increasefillSpeed: 1.5
+  EnergyAmount: 0
   SmallExplore: {fileID: 3546100863201118656}
   MediumExplore: {fileID: 3546100863258713704}
   BigExplore: {fileID: 3546100861893428404}
   smallExp: {fileID: 6136741063433534266}
   mediumExp: {fileID: 4385866652403694145}
   bigExp: {fileID: 3241727271496444928}
-  increasefillSpeed: 1.5
-  EnergyAmount: 0
+  smallSpark: {fileID: 0}
+  mediumSpark: {fileID: 0}
+  bigSpark: {fileID: 0}
   boltPrefab: {fileID: 2571141496576137634, guid: eec9425584ff3a5429222e24e6280af6, type: 3}
   spawnPoint: {fileID: 3546100862266419498}
+  timeSpawnBolt: 0
+  timeDelaySpawnBolt: 0.3
+  isShotBolt: 0
+  pressTimeLeft: 0
 --- !u!1 &5195068569907971021
 GameObject:
   m_ObjectHideFlags: 0

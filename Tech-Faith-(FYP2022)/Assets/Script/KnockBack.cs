@@ -5,7 +5,7 @@ using UnityEngine;
 public class KnockBack : MonoBehaviour
 {
     Rigidbody rb;
-    [SerializeField] private float KnockBackForce = -50;
+    private float KnockBackForce = -25;
 
     private void Start()
     {
@@ -17,23 +17,13 @@ public class KnockBack : MonoBehaviour
         if (other.tag == "ElectricField")
         {
             Vector3 direction = (other.transform.position - transform.position).normalized;
-            direction.y = -KnockBackForce;
+
+            if (direction.y <= 0)
+            {
+                direction.y *= -0.75f;
+            }
 
             rb.AddForce(direction * KnockBackForce, ForceMode.Impulse);
         }
-        if (other.tag == "Respawn")
-        {
-            StartCoroutine(MassIncrease());
-        }
-    }
-
-    IEnumerator MassIncrease()
-    {
-        rb.drag = 100f;
-
-        yield return new WaitForSeconds(0.5f);
-
-        rb.drag = 0f;
-
     }
 }

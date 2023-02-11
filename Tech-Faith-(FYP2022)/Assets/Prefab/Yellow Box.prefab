@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3e340ff7ec800e4e96b71307b68fec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KnockBackForce: -50
+  KnockBackForce: 50
 --- !u!114 &1237205777248227536
 MonoBehaviour:
   m_ObjectHideFlags: 0
