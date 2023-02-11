@@ -167,36 +167,53 @@ public class MagneticElectricField : MonoBehaviour
 
         if ((Input.GetKeyDown(KeyCode.Mouse1)) && (player.isPressed == false) && (gameMenu.openOption == false))
         {
-            player.isPressed = true;
-            player.disableInput = true;
+            //player.isPressed = true;
+            //player.disableInput = true;
 
-            if (player.isPressed == true)
+            //if (player.isPressed == true)
+            //{
+            //    player.pressTimeLeft = player.pressTimeCooldown;
+
+            //    //animator.SetBool("IsMoving", false);
+
+            //    if (player.isGrounded == true)
+            //    {
+            //        ChangeAnimationState(SHOT_ELECTRIC_BOLT);
+            //        //animator.SetLayerWeight(1, 0f);
+            //    }
+            //    else
+            //    {
+            //        ChangeAnimationState(SHOT_ELECTRIC_BOLT);
+            //        ChangeAnimationState2(JUMP_DOWN_STANDING);
+            //    }
+
+            //    isShotBolt = true;
+            //    Invoke("pressComplete", player.delayPlayerInput);
+            //}
+
+            if (EnergyAmount >= 0.3f)
             {
-                player.pressTimeLeft = player.pressTimeCooldown;
+                EnergyAmount -= 0.3f;
+                player.isPressed = true;
+                player.disableInput = true;
 
-                //animator.SetBool("IsMoving", false);
-
-                if (player.isGrounded == true)
+                if (player.isPressed == true)
                 {
-                    ChangeAnimationState(SHOT_ELECTRIC_BOLT);
-                    //animator.SetLayerWeight(1, 0f);
-                }
-                else
-                {
-                    ChangeAnimationState(SHOT_ELECTRIC_BOLT);
-                    ChangeAnimationState2(JUMP_DOWN_STANDING);
-                }
+                    player.pressTimeLeft = player.pressTimeCooldown;
 
-                isShotBolt = true;
-                Invoke("pressComplete", player.delayPlayerInput);
+                    if (player.isGrounded == true)
+                    {
+                        ChangeAnimationState(SHOT_ELECTRIC_BOLT);
+                    }
+                    else
+                    {
+                        ChangeAnimationState(SHOT_ELECTRIC_BOLT);
+                        ChangeAnimationState2(JUMP_DOWN_STANDING);
+                    }
 
-                //if (EnergyAmount >= 0.3f)
-                //{
-                //    EnergyAmount -= 0.3f;
-                //    Instantiate(boltPrefab, spawnPoint.position, transform.rotation);
-                //    AudioManager.instance.electricBoltSound(AudioManager.instance.electricBolt);
-                //    //Debug.Log("Bolt");
-                //}
+                    isShotBolt = true;
+                    Invoke("pressComplete", player.delayPlayerInput);
+                }
             }
         }
         #endregion;

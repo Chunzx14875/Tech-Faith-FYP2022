@@ -24,6 +24,9 @@ public class TrapSwitch : MonoBehaviour
             rb.AddForce(direction * KnockBackForce, ForceMode.Impulse);
 
             Destroy(Trap);
+
+            Debug.Log("destroy");
+
         }
     }
 

@@ -5,7 +5,6 @@ using DG.Tweening;
 
 public class StepPlate : MonoBehaviour
 {
-    [Space(25)]
     [Header("DOOR")]
     [SerializeField] Transform doorLeft;
     [SerializeField] Transform doorRight;
