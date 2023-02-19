@@ -851,7 +851,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 2350497019966055310}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.1
+  m_Radius: 2.2
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -2198,6 +2198,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2660306521132957458}
     m_Modifications:
+    - target: {fileID: 8171014626015309511, guid: 157e55141742fd043b4dc0fdfdbb9404, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ca9fbced53e3e0044b24e8f05a62cc21, type: 2}
     - target: {fileID: 8171014626015759865, guid: 157e55141742fd043b4dc0fdfdbb9404, type: 3}
       propertyPath: ChaosFactor
       value: 0.6
@@ -2288,6 +2292,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2660306521132957458}
     m_Modifications:
+    - target: {fileID: 8171014626015309511, guid: 157e55141742fd043b4dc0fdfdbb9404, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ca9fbced53e3e0044b24e8f05a62cc21, type: 2}
     - target: {fileID: 8171014626015759865, guid: 157e55141742fd043b4dc0fdfdbb9404, type: 3}
       propertyPath: ChaosFactor
       value: 0.6
@@ -2378,6 +2386,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2660306521132957458}
     m_Modifications:
+    - target: {fileID: 8171014626015309511, guid: 157e55141742fd043b4dc0fdfdbb9404, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ca9fbced53e3e0044b24e8f05a62cc21, type: 2}
     - target: {fileID: 8171014626015759865, guid: 157e55141742fd043b4dc0fdfdbb9404, type: 3}
       propertyPath: ChaosFactor
       value: 0.5
