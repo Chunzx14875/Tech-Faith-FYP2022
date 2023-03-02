@@ -64,7 +64,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 4a7da04baca14854aab34fb767f4b252, type: 2}
-  - {fileID: 2100000, guid: d4a0f8d795275f44eaff3d1bbd030e06, type: 2}
+  - {fileID: 2100000, guid: c8b4afe7ede3d094fabd30c3d4d5cb12, type: 2}
   - {fileID: 2100000, guid: af8bc1489df1b52429ada39fcf54310f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -114,3 +114,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TouchBox: 0
+  doorLeft: {fileID: 0}
+  doorRight: {fileID: 0}
