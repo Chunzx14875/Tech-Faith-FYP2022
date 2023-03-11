@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 8150373166856267829}
   - component: {fileID: 6268736351525870847}
   - component: {fileID: 9147427151450307733}
+  - component: {fileID: 2124911098}
   m_Layer: 0
   m_Name: Green Switch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 65
   m_IsActive: 1
 --- !u!4 &5094743958892373904
 Transform:
@@ -26,14 +27,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5620485805163724074}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: -39.99, y: 1.0065122, z: -38.605915}
   m_LocalScale: {x: 45.000004, y: 47.237747, z: 511.36365}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &8150373166856267829
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -100,3 +101,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5287425419667122880, guid: c36a23ec4bcf6df408efb2c90c5dc503, type: 3}
+--- !u!114 &2124911098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5620485805163724074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4faeedf25f39404c8ff30178c192714, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myDoorLogic: {fileID: 0}
+  floorNum: 4

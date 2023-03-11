@@ -1,0 +1,499 @@
+fileFormatVersion: 2
+guid: 3c0768fe4684f394583feee87c3f8257
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Yellow Box (Puzzle UI) Cropped_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 724.5
+        width: 241.5
+        height: 241.5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4eb7c7f0b8e98544bfef55522a32321
+      internalID: 2117540831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yellow Box (Puzzle UI) Cropped_1
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 724.5
+        width: 241.5
+        height: 241.5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae78d4cdea2bc3745bf8aaec578ef217
+      internalID: -64254560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yellow Box (Puzzle UI) Cropped_2
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 724.5
+        width: 241.5
+        height: 241.5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9d113455de848f4a8adb15111f07704
+      internalID: 1292447481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yellow Box (Puzzle UI) Cropped_3
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 724.5
+        width: 241.5
+        height: 241.5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae9a7576d318a634e880a8a45739d72f
+      internalID: 1517766732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yellow Box (Puzzle UI) Cropped_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 483.5
+        width: 241.5
+        height: 241.5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf4d128395233f64eba583b429acc674
+      internalID: 1026702065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yellow Box (Puzzle UI) Cropped_5
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 483.5
+        width: 241.5
+        height: 241.5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06617a1f47d1c5c46953631bed61ad52
+      internalID: -118824396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yellow Box (Puzzle UI) Cropped_6
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 483.5
+        width: 241.5
+        height: 241.5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04afd32a3d72565409fd2d7af8078bca
+      internalID: -1769940684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yellow Box (Puzzle UI) Cropped_7
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 483.5
+        width: 241.5
+        height: 241.5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a207d984de2a254fa6bee8d8c45d46f
+      internalID: 1881012335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yellow Box (Puzzle UI) Cropped_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 242.5
+        width: 241.5
+        height: 241.5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b13eb310cf06d7d47b3ead6695d23865
+      internalID: 1811839081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yellow Box (Puzzle UI) Cropped_9
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 242.5
+        width: 241.5
+        height: 241.5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5eb7fa66c6592a143bb57b39b8494083
+      internalID: -534084711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yellow Box (Puzzle UI) Cropped_10
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 242.5
+        width: 241.5
+        height: 241.5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11e3f9f6d28b3374290c6d22e8bc096a
+      internalID: -2023113164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yellow Box (Puzzle UI) Cropped_11
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 242.5
+        width: 241.5
+        height: 241.5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56db790dae0dc4349b55a272cd1c5bda
+      internalID: -803308382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yellow Box (Puzzle UI) Cropped_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1.5
+        width: 241.5
+        height: 241.5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc2d6a9900d13a648b416b012d8b8979
+      internalID: -1200195903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yellow Box (Puzzle UI) Cropped_13
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 1.5
+        width: 241.5
+        height: 241.5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3aa41fdbb1babd4d99633e23c0c0403
+      internalID: 1952229463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yellow Box (Puzzle UI) Cropped_14
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 1.5
+        width: 241.5
+        height: 241.5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bea8fd5d40ecc014e8b14d23930908a8
+      internalID: 2044873812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Yellow Box (Puzzle UI) Cropped_15
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 1.5
+        width: 241.5
+        height: 241.5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28ad3aa0151148e4cbebcaa70a4212e4
+      internalID: 1331800311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 270b476d30469ab4290015466830fa9b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Yellow Box (Puzzle UI) Cropped_11: -803308382
+      Yellow Box (Puzzle UI) Cropped_1: -64254560
+      Yellow Box (Puzzle UI) Cropped_12: -1200195903
+      Yellow Box (Puzzle UI) Cropped_2: 1292447481
+      Yellow Box (Puzzle UI) Cropped_10: -2023113164
+      Yellow Box (Puzzle UI) Cropped_15: 1331800311
+      Yellow Box (Puzzle UI) Cropped_6: -1769940684
+      Yellow Box (Puzzle UI) Cropped_14: 2044873812
+      Yellow Box (Puzzle UI) Cropped_3: 1517766732
+      Yellow Box (Puzzle UI) Cropped_4: 1026702065
+      Yellow Box (Puzzle UI) Cropped_5: -118824396
+      Yellow Box (Puzzle UI) Cropped_9: -534084711
+      Yellow Box (Puzzle UI) Cropped_0: 2117540831
+      Yellow Box (Puzzle UI) Cropped_8: 1811839081
+      Yellow Box (Puzzle UI) Cropped_13: 1952229463
+      Yellow Box (Puzzle UI) Cropped_7: 1881012335
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

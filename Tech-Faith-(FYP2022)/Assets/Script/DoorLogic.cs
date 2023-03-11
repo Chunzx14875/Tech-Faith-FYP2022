@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
@@ -42,6 +42,7 @@ public class DoorLogic : MonoBehaviour
                 if(sequence[i] != addedSeq[i])
                 {
                     correct = false;
+                    //Door will not open
                 }
 
             }
@@ -49,11 +50,12 @@ public class DoorLogic : MonoBehaviour
         else
         {
             correct = false;
+            //Door will not open
         }
 
-        if(correct)
+        if (correct)
         {
-            //anim.SetBool("OpenDoor", true);
+            //Door open
 
             doorLeft.DOMove(new Vector3(doorLeft.transform.position.x + 2, doorLeft.transform.position.y, doorLeft.transform.position.z), 2);
             doorRight.DOMove(new Vector3(doorRight.transform.position.x - 2, doorRight.transform.position.y, doorRight.transform.position.z), 2);
