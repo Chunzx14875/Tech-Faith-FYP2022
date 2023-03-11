@@ -2,45 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class TutorialPuzzleManager : MonoBehaviour
 {
     public static TutorialPuzzleManager instance;
 
-    public List<int> sequence;
-    public List<int> addedSeq;
-
-    [Space(25)]
-    [Header("DOOR")]
-    [SerializeField] Transform doorLeft;
-    [SerializeField] Transform doorRight;
-    Vector3 doorLeftStartPos;
-    Vector3 doorRightStartPos;
-
-    [Header("Blue Puzzle")]
-    [Space(25)]
-    public bool blue_puzzle_solve = false;
-    [SerializeField] RectTransform[] BluePuzzleTile;
-
-    [Header("Green Puzzle")]
-    [Space(25)]
-    public bool green_puzzle_solve = false;
-    [SerializeField] RectTransform[] GreenPuzzleTile;
-
-    [Header("Purple Puzzle")]
-    [Space(25)]
-    public bool purple_puzzle_solve = false;
-    [SerializeField] RectTransform[] PurplePuzzleTile;
-
-    [Header("Red Puzzle")]
-    [Space(25)]
-    public bool red_puzzle_solve = false;
-    [SerializeField] RectTransform[] RedPuzzleTile;
-
-    [Header("Yellow Puzzle")]
-    [Space(25)]
-    public bool yellow_puzzle_solve = false;
-    [SerializeField] Image[] YellowPuzzleTile;
+    [Header("BluePuzzle")]
+    [Space(10)]
+    public bool BluePuzzleSolved = false;
+    [SerializeField] Transform[] BluePuzzleTile;
+    [SerializeField] GameObject BlueBox;
+    [SerializeField] Transform SpawnBlueBox;
+    bool spawnBlueBox = false;
 
     private void Awake()
     {
@@ -54,15 +28,19 @@ public class TutorialPuzzleManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
-        
+        if(BluePuzzleTile[0].rotation.y == 0 && BluePuzzleTile[1].rotation.y == 0 && BluePuzzleTile[2].rotation.y == 0 && BluePuzzleTile[3].rotation.y == 0)
+        {
+            BluePuzzleSolved = true;
+            Debug.Log("Blue Puzzle Solved!!!");
+
+            if(!spawnBlueBox)
+            {
+                Instantiate(BlueBox, SpawnBlueBox.position, SpawnBlueBox.rotation);
+                spawnBlueBox = true;
+            }
+        }
     }
 }
