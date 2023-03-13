@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class GameMenu : MonoBehaviour
 {
@@ -53,6 +54,7 @@ public class GameMenu : MonoBehaviour
 
     public void ResetScene()
     {
+        DOTween.KillAll();
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -61,6 +63,7 @@ public class GameMenu : MonoBehaviour
 
     public void ReturnMain()
     {
+        DOTween.KillAll();
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenuScene");
     }
