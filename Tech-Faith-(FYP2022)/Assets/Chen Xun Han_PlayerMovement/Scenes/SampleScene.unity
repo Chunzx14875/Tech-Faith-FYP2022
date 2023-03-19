@@ -6781,7 +6781,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738127666}
-  m_LocalRotation: {x: 0.08248053, y: -1e-45, z: -0, w: 0.9965927}
+  m_LocalRotation: {x: 0.08248053, y: -0, z: -0, w: 0.9965927}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6883,7 +6883,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 65
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &782589589
 Transform:
   m_ObjectHideFlags: 0
@@ -9695,7 +9695,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1125788066}
-  m_LocalRotation: {x: 0.046224922, y: -0, z: -0, w: 0.99893105}
+  m_LocalRotation: {x: 0.046224922, y: 1e-45, z: -0, w: 0.99893105}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9718,6 +9718,7 @@ GameObject:
   - component: {fileID: 1138390907}
   - component: {fileID: 1138390906}
   - component: {fileID: 1138390905}
+  - component: {fileID: 1138390910}
   - component: {fileID: 1138390904}
   m_Layer: 11
   m_Name: Platform_Cube1
@@ -9765,7 +9766,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1138390902}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff8109e788aee164981c68888b295df2, type: 3}
   m_Name: 
@@ -9850,6 +9851,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1138390902}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1138390910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138390902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ef9fdc479676c8489cfe3109d723409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _waypointPath: {fileID: 308686698}
+  _speed: 2
 --- !u!1 &1140491487
 GameObject:
   m_ObjectHideFlags: 0
@@ -19594,10 +19609,6 @@ PrefabInstance:
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 963194228}
-    - target: {fileID: 3561013791476562559, guid: a86fedf8a6dc42f44b4135f574b730b2, type: 3}
-      propertyPath: delayPlayerInput
-      value: 0.7
-      objectReference: {fileID: 0}
     - target: {fileID: 3954717170915040665, guid: a86fedf8a6dc42f44b4135f574b730b2, type: 3}
       propertyPath: m_RootOrder
       value: 8

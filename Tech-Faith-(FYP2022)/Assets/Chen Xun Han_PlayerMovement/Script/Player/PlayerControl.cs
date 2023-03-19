@@ -29,7 +29,7 @@ public class PlayerControl : MonoBehaviour
     [Header("LOSE")]
     public GameObject gameMenuCanvas;
     GameMenu gameMenu;
-
+    [SerializeField] private GameObject deathParticle;
     Vector3 respawn;
 
     [Space(25)]
@@ -245,6 +245,7 @@ public class PlayerControl : MonoBehaviour
                 if (NumberOfShield == 0)
                 {
                     gameMenu.losePanelOpen();
+                    Instantiate(deathParticle, new Vector3(transform.position.x, 1.5f, transform.position.z), Quaternion.identity);
                     AudioManager.instance.playerExplodeSound(AudioManager.instance.playerExplode);
                     Destroy(gameObject);
                     Debug.Log("Player dead");

@@ -27999,6 +27999,7 @@ MonoBehaviour:
   isJumping: 0
   isGrounded: 0
   gameMenuCanvas: {fileID: 0}
+  deathParticle: {fileID: 7868902364342761607, guid: b3abb17cbcf71dc479a7270829390f80, type: 3}
   NumberOfShield: 3
   FirstShield: {fileID: 3561013791208492870}
   SecondShield: {fileID: 3561013791149924707}
