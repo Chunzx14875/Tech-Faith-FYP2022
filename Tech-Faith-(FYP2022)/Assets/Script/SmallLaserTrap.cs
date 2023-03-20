@@ -65,8 +65,6 @@ public class SmallLaserTrap : MonoBehaviour
                     }
                     break;
                 }
-
-                Debug.Log()
             }
         }
     }
