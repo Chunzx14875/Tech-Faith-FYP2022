@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
+    public static PlayerControl instance;
+
     [Header("MOVEMENT")]
     //[Space(15)]
     Vector3 movementDirection;
@@ -52,6 +54,18 @@ public class PlayerControl : MonoBehaviour
     [Header("PLAYER MOVEMENT INPUT DELAY")]
     public float delayPlayerInput = 0.5f;
     public bool disableInput;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
@@ -252,7 +266,7 @@ public class PlayerControl : MonoBehaviour
                     StartCoroutine(Invincible());
                 }
                 else
-                {
+                {                   
                     NumberOfShield--;
                     AudioManager.instance.shieldBreakSound(AudioManager.instance.shieldBreak);
                     Debug.Log(NumberOfShield);
