@@ -22,12 +22,6 @@ public class Enemy2 : MonoBehaviour
     [SerializeField] bool isfound;
 
     [Space(25)]
-    [Header("ATTACK")]
-    [SerializeField] float damage;
-    [SerializeField] float damagePerSec;
-    [SerializeField] float timeLeft;
-
-    [Space(25)]
     [Header("STUN")]
     [SerializeField] float stunTimeDuration;
     [SerializeField] float stunTimeLeft;
