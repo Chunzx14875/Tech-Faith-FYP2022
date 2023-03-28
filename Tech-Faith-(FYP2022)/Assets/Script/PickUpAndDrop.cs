@@ -11,6 +11,7 @@ public class PickUpAndDrop : MonoBehaviour
     [SerializeField] private Transform RaycastFrom;
     GameObject heldObj;
     Rigidbody heldObjRB;
+    BoxCollider heldObjCollider;
     [Space(5)]
 
     [Header("Physics Parameters")]
@@ -215,6 +216,9 @@ public class PickUpAndDrop : MonoBehaviour
     {
         if(pickObj.GetComponent<Rigidbody>())
         {
+            heldObjCollider = pickObj.GetComponent<BoxCollider>();
+            heldObjCollider.enabled = false;
+
             heldObjRB = pickObj.GetComponent<Rigidbody>();
             heldObjRB.useGravity = false;
             //heldObjRB.mass = 0;
@@ -228,6 +232,8 @@ public class PickUpAndDrop : MonoBehaviour
 
     void DropObject()
     {
+        heldObjCollider.enabled = true;
+
         heldObjRB.useGravity = true;
         heldObjRB.drag = 0;
         //heldObjRB.mass = 1;

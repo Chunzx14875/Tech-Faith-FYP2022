@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
-    [SerializeField] Light ligthColor;
-    [SerializeField] ParticleSystem EffectColor;
+    [SerializeField] GameObject CheckedPoint;
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
         {
-            ligthColor.color = Color.green;
-            EffectColor.startColor = Color.green;
+            Instantiate(CheckedPoint, transform.position, transform.rotation);
+            Destroy(gameObject);
         }
     }
 }
