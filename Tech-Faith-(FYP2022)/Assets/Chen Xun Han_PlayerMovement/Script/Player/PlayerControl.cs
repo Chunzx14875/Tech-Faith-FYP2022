@@ -28,11 +28,15 @@ public class PlayerControl : MonoBehaviour
     [HideInInspector] public bool isGrounded;
 
     [Space(25)]
+    [Header("CHECKPOINT")]
+    [SerializeField] Vector3 checkedPoint;
+
+    [Space(25)]
     [Header("LOSE")]
     public GameObject gameMenuCanvas;
     GameMenu gameMenu;
     [SerializeField] private GameObject deathParticle;
-    Vector3 respawn;
+    //Vector3 respawn;
 
     [Space(25)]
     [Header("SHIELD")]
@@ -74,9 +78,12 @@ public class PlayerControl : MonoBehaviour
         orignalStepOffset = characterController.stepOffset;
 
         gameMenu = gameMenuCanvas.GetComponent<GameMenu>();
-        respawn = transform.position;
+        //respawn = transform.position;
 
         NumberOfShield = 3;
+
+        checkedPoint = transform.position;
+        //checkedPoint = checkPointOriginal;
     }
 
 
@@ -277,13 +284,17 @@ public class PlayerControl : MonoBehaviour
         if (other.CompareTag("Respawn"))
         {
             characterController.enabled = false;
-            transform.position = respawn;
+            //transform.position = respawn;
+            transform.position = checkedPoint;
             characterController.enabled = true;
+
             Debug.Log("Touch Respawn Area");
         }
         if (other.CompareTag("CheckPoint"))
         {
-            respawn = other.transform.position;
+            //respawn = other.transform.position;
+
+            checkedPoint= other.transform.position;
             Debug.Log("Touch Checkpoint");
         }
     }
