@@ -5,24 +5,24 @@ using UnityEngine;
 public class CheckPoint : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    public GameObject checkedPoint;
-    [SerializeField] GameObject checkPointOriginal;
+    //public GameObject checkedPoint;
+    //[SerializeField] GameObject checkPointOriginal;
     [SerializeField] GameObject checkPointOriginalNew;
 
 
-    void Start()
-    {
-        checkedPoint = checkPointOriginal;
-    }
+    //void Start()
+    //{
+    //    checkedPoint = checkPointOriginal;
+    //}
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
         {
-            //Instantiate(CheckedPoint, transform.position, transform.rotation);
-            //Destroy(gameObject);
+            Instantiate(checkPointOriginalNew, transform.position, transform.rotation);
+            Destroy(gameObject);
 
-            checkedPoint = checkPointOriginalNew;
+            //checkedPoint = checkPointOriginalNew;
         }
     }
 }
