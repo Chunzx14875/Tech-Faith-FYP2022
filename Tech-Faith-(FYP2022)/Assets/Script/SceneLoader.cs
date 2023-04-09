@@ -5,18 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    [SerializeField] int index;
+    [SerializeField] int indexNumber;
 
-    private void OnTriggerEnter(Collider other)
+    public void PasstheLevel()
     {
-        if(other.CompareTag("Player"))
-        {
-            LoadScene();
-        }
+        SceneManager.LoadScene(indexNumber);
     }
 
-    void LoadScene()
-    {
-        SceneManager.LoadScene(index);
-    }
+    //[SerializeField] int index;
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.CompareTag("Player"))
+    //    {
+    //        LoadScene();
+    //    }
+    //}
+
+    //void LoadScene()
+    //{
+    //    SceneManager.LoadScene(index);
+    //}
 }

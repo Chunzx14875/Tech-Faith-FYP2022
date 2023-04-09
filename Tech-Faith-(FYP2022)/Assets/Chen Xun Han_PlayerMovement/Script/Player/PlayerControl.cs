@@ -61,6 +61,8 @@ public class PlayerControl : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 1;
+
         if (instance == null)
         {
             instance = this;
@@ -84,6 +86,9 @@ public class PlayerControl : MonoBehaviour
 
         checkedPoint = transform.position;
         //checkedPoint = checkPointOriginal;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
 

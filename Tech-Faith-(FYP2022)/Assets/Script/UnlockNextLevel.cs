@@ -6,19 +6,29 @@ using UnityEngine.SceneManagement;
 
 public class UnlockNextLevel : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    public GameObject Passpanel;
+
+    private void Start()
     {
-        if (other.tag == "Player")
+        Passpanel.SetActive(false);
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.tag == "Player")
         {
-            
+            Time.timeScale = 0;
             int currentlevel = SceneManager.GetActiveScene().buildIndex;
 
             if (currentlevel >= PlayerPrefs.GetInt("levelUnlocked"))
             {
-                PlayerPrefs.SetInt("levelUnlocked", currentlevel);
+                PlayerPrefs.SetInt("levelUnlocked", currentlevel + 1);
             }
 
-            
+            Passpanel.SetActive(true);
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 }

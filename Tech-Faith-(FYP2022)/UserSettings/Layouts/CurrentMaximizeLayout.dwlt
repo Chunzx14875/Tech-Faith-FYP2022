@@ -223,24 +223,24 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 71.781456}
-      m_SelectedIDs: 04b0fbff
-      m_LastClickedID: -282620
-      m_ExpandedIDs: 74c9feff4efdfeff0e90ffff389f01008c9f010000a0010028a101003aa10100b4a20100c0a2010068a301000ea60100f8a80100
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: ac760000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 561cfbff1c43fbff0e47fbff9043fcff805afcff240ffdff7e27fdffacb7fdff8482fefffe93feff1e3effff404dffff3262ffff34f2ffffeafaffff848601008a0c02002c0d0200860d0200060e02007a9e0200f49e02001c9f0200769f020090b602004eb7020086b7020044b8020006160300dad40300c0d6030084d8030012d9030068d90300cedc0300
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: GameObject
-        m_OriginalName: GameObject
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -227302
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 5}
       m_SearchString: 
@@ -536,9 +536,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 15.131044, y: 0.85984325, z: 123.67444}
+    m_Target: {x: 4.6390676, y: 1.711376, z: 92.10041}
     speed: 2
-    m_Value: {x: 15.131044, y: 0.85984325, z: 123.67444}
+    m_Value: {x: 4.6390676, y: 1.711376, z: 92.10041}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -585,13 +585,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.08744209, y: -0.638152, z: 0.07324553, w: 0.76148355}
+    m_Target: {x: 0.013539334, y: -0.73139584, z: 0.014459298, w: 0.6817618}
     speed: 2
-    m_Value: {x: 0.08743745, y: -0.63811815, z: 0.07324165, w: 0.76144314}
+    m_Value: {x: 0.013538444, y: -0.7313478, z: 0.014458348, w: 0.68171704}
   m_Size:
-    m_Target: 1.0639479
+    m_Target: 2.7218463
     speed: 2
-    m_Value: 1.0639479
+    m_Value: 2.7218463
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -609,7 +609,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: 0.06923696, y: -0.022448739, z: 0.0015581555, w: 0.99734914}
+  m_LastSceneViewRotation: {x: 0.27707797, y: -0.53629315, z: 0.19199318, w: 0.7738726}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -701,7 +701,8 @@ MonoBehaviour:
     m_SaveData: []
   m_SearchFilter:
     m_NameFilter: 
-    m_ClassNames: []
+    m_ClassNames:
+    - Scene
     m_AssetLabels: []
     m_AssetBundleNames: []
     m_VersionControlStates: []
@@ -712,22 +713,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Chunzx-GraphicAsset
+    - Assets/Chen Xun Han_PlayerMovement/Script/Player
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Chunzx-GraphicAsset
+  - Assets/Chen Xun Han_PlayerMovement/Script/Player
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\cheesun.choi\Desktop\FYP-TechFaith(Github)\Tech-Faith-FYP2022\Tech-Faith-(FYP2022)
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 0a9e0100
-    m_LastClickedID: 105994
-    m_ExpandedIDs: 00000000449c0100049e010000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 118}
+    m_SelectedIDs: 36790000
+    m_LastClickedID: 31030
+    m_ExpandedIDs: 000000001a770000d07800002679000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -755,7 +756,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000449c0100
+    m_ExpandedIDs: 000000001a770000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -780,8 +781,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 04b0fbff
-    m_LastClickedInstanceID: -282620
+    m_SelectedInstanceIDs: ac760000
+    m_LastClickedInstanceID: 30380
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c623000008bc0100
     m_RenameOverlay:
@@ -799,7 +800,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 10}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -807,7 +808,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 42}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 115
@@ -858,8 +859,8 @@ MonoBehaviour:
     y: 0
     width: 389
     height: 939
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}

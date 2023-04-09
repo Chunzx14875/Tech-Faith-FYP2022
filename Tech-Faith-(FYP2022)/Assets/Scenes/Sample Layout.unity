@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -590,6 +590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Trap: {fileID: 564074288}
   KnockBackForce: 0
+  activeElecDevice: {fileID: 0}
 --- !u!65 &22553129
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -652,7 +653,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3e340ff7ec800e4e96b71307b68fec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KnockBackForce: -50
 --- !u!54 &25198396
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1875,7 +1875,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3e340ff7ec800e4e96b71307b68fec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KnockBackForce: -50
 --- !u!54 &117716715
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3585,7 +3584,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3e340ff7ec800e4e96b71307b68fec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KnockBackForce: -50
 --- !u!54 &235076565
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11338,7 +11336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3e340ff7ec800e4e96b71307b68fec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KnockBackForce: -50
 --- !u!54 &461567839
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15209,78 +15206,6 @@ MonoBehaviour:
   addedSeq: 
   doorLeft: {fileID: 0}
   doorRight: {fileID: 0}
---- !u!1 &875986666
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 875986668}
-  - component: {fileID: 875986667}
-  - component: {fileID: 875986669}
-  - component: {fileID: 875986670}
-  m_Layer: 0
-  m_Name: EndPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!65 &875986667
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 875986666}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.5703907, y: 3.9965906, z: 1}
-  m_Center: {x: 0, y: 1.4982953, z: 0}
---- !u!4 &875986668
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 875986666}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -38.22, y: 0.5, z: -164.34}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 228
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &875986669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 875986666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbf749774d1bb8441b4aefed0ed7f765, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index: 0
---- !u!114 &875986670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 875986666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e57c4a3e41301894cae4a81d2cd6310d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &877985529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18066,7 +17991,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3e340ff7ec800e4e96b71307b68fec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KnockBackForce: -50
 --- !u!54 &1103476755
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25958,7 +25882,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3e340ff7ec800e4e96b71307b68fec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KnockBackForce: -50
 --- !u!54 &1797993882
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30752,8 +30675,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7209e110cdf6f4c4a9c89eda07e483cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ligthColor: {fileID: 1536504424}
-  EffectColor: {fileID: 255873964}
+  player: {fileID: 0}
+  checkPointOriginalNew: {fileID: 0}
 --- !u!136 &2032429721479316027
 CapsuleCollider:
   m_ObjectHideFlags: 0

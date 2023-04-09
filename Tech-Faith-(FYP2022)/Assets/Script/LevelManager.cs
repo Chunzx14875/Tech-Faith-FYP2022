@@ -8,14 +8,12 @@ public class LevelManager : MonoBehaviour
 {
     int levelUnlocked;
 
-    //[SerializeField] private GameObject confirm;
-    [SerializeField] private Button[] buttons;
+    public GameObject confirm;
+    public Button[] buttons;
 
     // Start is called before the first frame update
     void Start()
     {
-        //PlayerPrefs.DeleteAll();
-
         levelUnlocked = PlayerPrefs.GetInt("levelUnlocked", 1);
 
         for (int i = 0; i < buttons.Length; i++)
@@ -26,15 +24,14 @@ public class LevelManager : MonoBehaviour
         {
             buttons[i].interactable = true;
         }
-
     }
 
 
     // Update is called once per frame
-    //void Update()
-    //{
+    void Update()
+    {
 
-    //}
+    }
 
     public void LoadLevel(int levelIndex)
     {
@@ -43,27 +40,32 @@ public class LevelManager : MonoBehaviour
 
     public void ResetLevel()
     {
-        buttons[1].interactable = false;
-        buttons[2].interactable = false;
-        buttons[3].interactable = false;
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            if (buttons[i] != buttons[0])
+            {
+                buttons[i].interactable = false;
+            }
+        }
+
         PlayerPrefs.DeleteAll();
-        //confirm.SetActive(false);
+        confirm.SetActive(false);
 
     }
 
-    //public void GoHome()
-    //{
-    //    SceneManager.LoadScene("Start Scene");
-    //}
+    public void GoHome()
+    {
+        SceneManager.LoadScene("Start Scene");
+    }
 
-    //public void Panel()
-    //{
-    //    confirm.SetActive(true);
-    //}
+    public void Panel()
+    {
+        confirm.SetActive(true);
+    }
 
-    //public void ClosePanel()
-    //{
-    //    confirm.SetActive(false);
-    //}
+    public void ClosePanel()
+    {
+        confirm.SetActive(false);
+    }
 
 }
