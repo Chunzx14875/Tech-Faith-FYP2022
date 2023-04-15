@@ -13,6 +13,7 @@ TagManager:
   - CheckPoint
   - Bolt
   - Picture
+  - Based
   layers:
   - Default
   - TransparentFX
