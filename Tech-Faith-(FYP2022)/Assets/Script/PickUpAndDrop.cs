@@ -60,6 +60,11 @@ public class PickUpAndDrop : MonoBehaviour
                 HintBox.instance.TextBox.SetActive(true);
                 HintBox.instance.hintText.text = "Press 'E' to switch on";
             }
+            else if (rayhit.transform.gameObject.CompareTag("Key"))
+            {
+                HintBox.instance.TextBox.SetActive(true);
+                HintBox.instance.hintText.text = "Press 'E' to pick key";
+            }
             else
             {
                 HintBox.instance.TextBox.SetActive(false);

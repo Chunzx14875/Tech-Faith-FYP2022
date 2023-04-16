@@ -14,6 +14,7 @@ TagManager:
   - Bolt
   - Picture
   - Based
+  - Key
   layers:
   - Default
   - TransparentFX

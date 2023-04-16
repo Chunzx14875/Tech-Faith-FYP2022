@@ -5,7 +5,7 @@ using UnityEngine;
 public class StoneKnockBack : MonoBehaviour
 {
     Rigidbody rb;
-    private float KnockBackForce = -5;
+    private float KnockBackForce = -7.5f;
 
     private void Start()
     {
@@ -26,6 +26,7 @@ public class StoneKnockBack : MonoBehaviour
             //}
 
             rb.AddForce(direction * KnockBackForce, ForceMode.Impulse);
+            Destroy(gameObject, 2);
         }
     }
 }
