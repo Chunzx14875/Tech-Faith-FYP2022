@@ -18,6 +18,11 @@ public class TrapSwitch : MonoBehaviour
 
     const string ELEC_DEVICE = "Smallplate";
 
+    [Space(25)]
+    [Header("Triggered Particle")]
+    [SerializeField] private ParticleSystem ps1;
+    [SerializeField] private ParticleSystem ps2;
+
     void Start()
     {
         animator = activeElecDevice.GetComponent<Animator>();
@@ -45,6 +50,9 @@ public class TrapSwitch : MonoBehaviour
             direction.y = -KnockBackForce;
 
             rb.AddForce(direction * KnockBackForce, ForceMode.Impulse);
+
+            ps1.Play();
+            ps2.Play();
 
             Destroy(Trap);
             Debug.Log("destroy");

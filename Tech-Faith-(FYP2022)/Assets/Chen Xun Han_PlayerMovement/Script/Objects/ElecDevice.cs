@@ -7,6 +7,7 @@ public class ElecDevice : MonoBehaviour
     [Header("MovingPlate")]
     private Animator animator;
     [SerializeField] private GameObject activeMP;
+    [SerializeField] private GameObject ps;
     private string currentState;
 
     const string MOVING_PLATE = "MovingPlateForm";
@@ -14,6 +15,7 @@ public class ElecDevice : MonoBehaviour
     void Start()
     {
         animator = activeMP.GetComponent<Animator>();
+        ps.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -21,6 +23,7 @@ public class ElecDevice : MonoBehaviour
         if (other.CompareTag("Bolt"))
         {
             ChangeAnimationState(MOVING_PLATE);
+            ps.SetActive(true);
             //Debug.Log("Detect Bolt");
         }
     }
