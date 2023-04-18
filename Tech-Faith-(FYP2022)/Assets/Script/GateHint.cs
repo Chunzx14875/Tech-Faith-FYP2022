@@ -7,24 +7,25 @@ using TMPro;
 public class GateHint : MonoBehaviour
 {
     [SerializeField] GameObject Textbox;
-    //[SerializeField] TextMeshProUGUI title;
-    [SerializeField] TextMeshProUGUI text;
+    [SerializeField] TextMeshProUGUI Titletext;
+    [SerializeField] TextMeshProUGUI Descriptiontext;
+    bool NexttoGate = false;
 
     // Start is called before the first frame update
     void Start()
     {
         Textbox.SetActive(false);
-        //title.text = string.Empty;
-        text.text = string.Empty;
+        Titletext.text = string.Empty;
+        Descriptiontext.text = string.Empty;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && CollectKey.instance.hasKey)
+        if (Input.GetKeyDown(KeyCode.E) && NexttoGate && CollectKey.instance.hasKey)
         {
             Textbox.SetActive(false);
-            //title.text = string.Empty;
-            text.text = string.Empty;
+            Titletext.text = string.Empty;
+            Descriptiontext.text = string.Empty;
             Destroy(gameObject);
         }
     }
@@ -35,15 +36,17 @@ public class GateHint : MonoBehaviour
         {
             if(CollectKey.instance.hasKey)
             {
+                NexttoGate = true;
                 Textbox.SetActive(true);
-                //title.text = string.Empty;
-                text.text = "Press 'E' to open the door";
+                Titletext.text = "Abandoned area";
+                Descriptiontext.text = "Press 'E' to open the door";
             }
             else
             {
+                NexttoGate = true;
                 Textbox.SetActive(true);
-                //title.text = string.Empty;
-                text.text = "You need find a key to open the door";
+                Titletext.text = "Abandoned area";
+                Descriptiontext.text = "You need find a key to open the door";
             }
         }
     }
@@ -52,9 +55,10 @@ public class GateHint : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            NexttoGate = false;
             Textbox.SetActive(false);
-            //title.text = string.Empty;
-            text.text = string.Empty;
+            Titletext.text = string.Empty;
+            Descriptiontext.text = string.Empty;
         }
     }
 }

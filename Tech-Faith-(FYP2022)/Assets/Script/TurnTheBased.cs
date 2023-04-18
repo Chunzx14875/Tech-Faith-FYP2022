@@ -43,6 +43,11 @@ public class TurnTheBased : MonoBehaviour
             anim.SetTrigger("TurnOn");
             Debug.Log("Switch on the turn Base.");
 
+            if (rayhit.transform.gameObject.CompareTag("Based"))
+            {
+                rayhit.transform.gameObject.tag = "Untagged";
+            }
+
             Invoke("DisableCamera", 8f);
         }
     }
