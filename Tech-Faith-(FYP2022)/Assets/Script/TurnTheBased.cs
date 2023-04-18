@@ -48,7 +48,7 @@ public class TurnTheBased : MonoBehaviour
                 rayhit.transform.gameObject.tag = "Untagged";
             }
 
-            Invoke("DisableCamera", 8f);
+            Invoke("DisableCamera", 8.5f);
         }
     }
 

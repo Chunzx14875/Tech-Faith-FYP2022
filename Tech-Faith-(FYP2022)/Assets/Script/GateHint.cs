@@ -39,7 +39,7 @@ public class GateHint : MonoBehaviour
                 NexttoGate = true;
                 Textbox.SetActive(true);
                 Titletext.text = "Abandoned area";
-                Descriptiontext.text = "Press 'E' to open the door";
+                Descriptiontext.text = "Press <sprite=0> key to open the door";
             }
             else
             {
