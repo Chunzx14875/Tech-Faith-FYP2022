@@ -15,6 +15,7 @@ TagManager:
   - Picture
   - Based
   - Key
+  - Portal
   layers:
   - Default
   - TransparentFX
