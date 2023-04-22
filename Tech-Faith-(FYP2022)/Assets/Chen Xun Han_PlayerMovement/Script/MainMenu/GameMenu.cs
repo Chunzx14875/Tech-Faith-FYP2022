@@ -52,13 +52,14 @@ public class GameMenu : MonoBehaviour
     }
 
 
-    public void ResetScene()
+    public void ResetScene(int index)
     {
         DOTween.KillAll();
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(index);
     }
 
     public void ReturnMain()
