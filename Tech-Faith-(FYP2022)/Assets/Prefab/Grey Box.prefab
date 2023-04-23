@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4218581599311034601}
   - component: {fileID: 5284106040442129181}
   - component: {fileID: 7614140014945261676}
+  - component: {fileID: 5370483599027910428}
   m_Layer: 0
   m_Name: Grey Box
   m_TagString: CanPick
@@ -128,4 +129,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3e340ff7ec800e4e96b71307b68fec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KnockBackForce: 50
+--- !u!114 &5370483599027910428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4119736744487546072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46d90ec883911aa46bb30275403840aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
