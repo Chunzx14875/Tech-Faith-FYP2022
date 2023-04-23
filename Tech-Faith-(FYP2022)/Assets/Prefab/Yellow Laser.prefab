@@ -346,6 +346,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reflections: 10
-  MaxLength: 500
+  MaxLength: 1000
   Box: {fileID: 4077353605395024787, guid: 86725e53e4dbbb84ea7fdf6ea812843c, type: 3}
   SpawnBox: {fileID: 0}
