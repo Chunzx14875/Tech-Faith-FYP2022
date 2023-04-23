@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6468158420959390603}
   - component: {fileID: 9090362575533416257}
   - component: {fileID: 1904303351328552902}
-  - component: {fileID: 6315066739217588343}
   - component: {fileID: 1543024335}
   m_Layer: 0
   m_Name: Red Switch
@@ -89,20 +88,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &1904303351328552902
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7288945059259694740}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5287425419667122880, guid: 27c11493b063d9040a8544a498ebbba7, type: 3}
---- !u!64 &6315066739217588343
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
