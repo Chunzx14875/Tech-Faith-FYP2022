@@ -61,16 +61,16 @@ public class MovingPlatform_WP : MonoBehaviour
         {
             other.transform.SetParent(transform);
         }
-        else if (other.CompareTag("Bolt") && isStun == false)
-        {
-            isStun = true;
-            Debug.Log("Stun");
-        }
-        else if (other.CompareTag("Bolt") && isStun == true)
-        {
-            isStun = false;
-            Debug.Log("Move");
-        }
+        //else if (other.CompareTag("Bolt") && isStun == false)
+        //{
+        //    isStun = true;
+        //    Debug.Log("Stun");
+        //}
+        //else if (other.CompareTag("Bolt") && isStun == true)
+        //{
+        //    isStun = false;
+        //    Debug.Log("Move");
+        //}
     }
 
     private void OnTriggerExit(Collider other)
