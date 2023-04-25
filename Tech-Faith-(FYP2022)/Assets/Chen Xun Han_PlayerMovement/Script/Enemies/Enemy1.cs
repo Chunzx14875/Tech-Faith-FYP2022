@@ -199,7 +199,7 @@ public class Enemy1 : MonoBehaviour
     {
         if(HpValue > 0f)
         {
-            HpValue -= 0.55f;
+            HpValue -= 0.35f;
             HpBarFill.fillAmount = HpValue;
             
         }

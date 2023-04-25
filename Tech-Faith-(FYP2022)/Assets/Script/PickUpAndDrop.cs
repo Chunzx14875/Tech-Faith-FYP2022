@@ -227,7 +227,9 @@ public class PickUpAndDrop : MonoBehaviour
         if(pickObj.GetComponent<Rigidbody>())
         {
             heldObjCollider = pickObj.GetComponent<BoxCollider>();
-            heldObjCollider.enabled = false;
+            //heldObjCollider.enabled = false;
+            Invoke("InableCollider", 0.1f);
+
 
             heldObjRB = pickObj.GetComponent<Rigidbody>();
             heldObjRB.useGravity = false;
@@ -238,6 +240,11 @@ public class PickUpAndDrop : MonoBehaviour
             heldObjRB.transform.parent = HoldArea;
             heldObj = pickObj;
         }
+    }
+
+    void InableCollider()
+    {
+        heldObjCollider.enabled = false;
     }
 
     void DropObject()
