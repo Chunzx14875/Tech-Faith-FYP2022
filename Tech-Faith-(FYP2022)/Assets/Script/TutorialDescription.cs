@@ -24,7 +24,7 @@ public class TutorialDescription : MonoBehaviour
         {
             Textbox.SetActive(true);
             title.text = "Movement";
-            text.text = "- Move: W,A,S,D\n" + "\n" + "- Jump: Space";
+            text.text = "- Move: W,A,S,D\n" + "\n" + "- Jump: Space\n" + "\n" + "- Camera movement: Mouse" ;
         }
         if (other.name == "Tutorial2")
         {
