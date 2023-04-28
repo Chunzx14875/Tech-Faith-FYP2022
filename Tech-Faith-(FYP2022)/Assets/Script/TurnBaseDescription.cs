@@ -27,7 +27,7 @@ public class TurnBaseDescription : MonoBehaviour
             Textbox.SetActive(true);
             Image.SetActive(true);
             //title.text = "Based";
-            text.text = "You can use this tools as shown at right to help go to the opposite road";
+            text.text = "You can use the tools shown at right to help go to the opposite road.";
         }
     }
 

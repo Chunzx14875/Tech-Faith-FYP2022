@@ -27,7 +27,7 @@ public class DescriptionLevel1 : MonoBehaviour
             Textbox.SetActive(true);
             Image.SetActive(true);
             title.text = "Breakable Stone";
-            text.text = "You can use electric field to destroy these stone";
+            text.text = "You can use electric field to destroy these stone.";
         }
     }
 
