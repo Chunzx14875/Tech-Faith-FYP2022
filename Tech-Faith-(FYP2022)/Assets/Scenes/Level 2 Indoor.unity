@@ -44281,7 +44281,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061209794}
-  m_LocalRotation: {x: 0.04622494, y: -0.0000000021484987, z: 9.9420513e-11, w: 0.99893105}
+  m_LocalRotation: {x: 0.04622494, y: 0.0000000021484985, z: -9.94205e-11, w: 0.99893105}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -63596,6 +63596,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1429271241}
     m_Modifications:
+    - target: {fileID: 3561013791476562557, guid: a86fedf8a6dc42f44b4135f574b730b2, type: 3}
+      propertyPath: UIPanel
+      value: 
+      objectReference: {fileID: 670854577}
     - target: {fileID: 3561013791476562557, guid: a86fedf8a6dc42f44b4135f574b730b2, type: 3}
       propertyPath: EnergyBar
       value: 

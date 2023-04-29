@@ -41143,7 +41143,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 724632017}
-  m_LocalRotation: {x: 0.06433938, y: 0.000000004292683, z: -2.76762e-10, w: 0.9979281}
+  m_LocalRotation: {x: 0.06433938, y: 0.0000000042926906, z: -2.767625e-10, w: 0.9979281}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -93041,6 +93041,10 @@ PrefabInstance:
       value: 0.040710326
       objectReference: {fileID: 0}
     - target: {fileID: 3561013791476562557, guid: a86fedf8a6dc42f44b4135f574b730b2, type: 3}
+      propertyPath: UIPanel
+      value: 
+      objectReference: {fileID: 1360169399}
+    - target: {fileID: 3561013791476562557, guid: a86fedf8a6dc42f44b4135f574b730b2, type: 3}
       propertyPath: EnergyBar
       value: 
       objectReference: {fileID: 78849345}
@@ -105951,7 +105955,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1948360443}
-  m_LocalRotation: {x: 0.06433938, y: 0.000000008585366, z: -5.5352395e-10, w: 0.9979281}
+  m_LocalRotation: {x: 0.06433938, y: 0.000000008585369, z: -5.535241e-10, w: 0.9979281}
   m_LocalPosition: {x: 0, y: 2.8, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -106165,7 +106169,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1965454618}
-  m_LocalRotation: {x: 0.046224922, y: -0, z: -0, w: 0.99893105}
+  m_LocalRotation: {x: 0.046224922, y: -1e-45, z: -0, w: 0.99893105}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class MagneticElectricField : MonoBehaviour
 {
@@ -31,6 +32,8 @@ public class MagneticElectricField : MonoBehaviour
     GameMenu gameMenu;
     private Animator animator;
     private string currentState;
+
+    [SerializeField] GameObject UIPanel;
 
     //Animation States
     const string SHOT_ELECTRIC_BOLT = "Shot Electric Bolt";
@@ -63,7 +66,7 @@ public class MagneticElectricField : MonoBehaviour
             EnergyBar.color = Color.red;
         }
 
-        if ((Input.GetKeyDown(KeyCode.Mouse0)) && (player.isPressed == false) && (gameMenu.openOption == false))
+        if (!EventSystem.current.IsPointerOverGameObject() && !UIPanel.activeSelf && (Input.GetKeyDown(KeyCode.Mouse0)) && (player.isPressed == false) && (gameMenu.openOption == false))
         {
             player.isPressed = true;
             player.disableInput = true;

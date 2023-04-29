@@ -3212,6 +3212,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1765122567}
     m_Modifications:
     - target: {fileID: 3561013791476562557, guid: a86fedf8a6dc42f44b4135f574b730b2, type: 3}
+      propertyPath: UIPanel
+      value: 
+      objectReference: {fileID: 1917301946}
+    - target: {fileID: 3561013791476562557, guid: a86fedf8a6dc42f44b4135f574b730b2, type: 3}
       propertyPath: EnergyBar
       value: 
       objectReference: {fileID: 121163504}
